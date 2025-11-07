@@ -1,0 +1,94 @@
+<section class="page">
+  <!-- HERO -->
+  <header class="hero">
+    <img [src]="heroImage" alt="{{ title }}" class="hero__image" />
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title">{{ title }}</h1>
+      <p class="hero__subtitle">{{ location }}</p>
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section class="section section--text fade-in">
+    <h2>Overview</h2>
+    <p>{{ overview }}</p>
+  </section>
+
+  <!-- HISTORY -->
+  <section class="section section--text fade-in delay">
+    <h2>History</h2>
+    <p>{{ history }}</p>
+  </section>
+
+  <!-- WEATHER -->
+<section class="section weather-section fade-in">
+  <h2>Weather in Delhi</h2>
+  <p class="section__subtext">
+    {{ weatherSummary.condition }} • Best time: {{ weatherSummary.bestTime }}
+  </p>
+
+  <div class="weather-chart">
+    <div class="weather-month" *ngFor="let w of monthlyWeather">
+      <div class="month-label">{{ w.month }}</div>
+
+      <div
+        class="temp-bar"
+        [style.--min]="(w.min - getMinTemp()) / (getMaxTemp() - getMinTemp())"
+        [style.--max]="(w.max - getMinTemp()) / (getMaxTemp() - getMinTemp())"
+      ></div>
+
+      <div class="temp-values">
+        <span>{{ w.min }}°</span>
+        <span>{{ w.max }}°</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- TRANSPORT -->
+  <section class="section fade-in">
+    <h2>How to Reach</h2>
+    <div class="grid grid--transport">
+      <article class="card">
+        <h3>✈️ By Air</h3>
+        <p>{{ transport.air }}</p>
+      </article>
+      <article class="card">
+        <h3>🚆 By Rail</h3>
+        <p>{{ transport.rail }}</p>
+      </article>
+      <article class="card">
+        <h3>🛣️ By Road</h3>
+        <p>{{ transport.road }}</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="section fade-in">
+    <h2>Highlights</h2>
+    <div class="grid grid--highlights">
+      <div class="card" *ngFor="let h of highlights">
+        <div class="card__icon">{{ h.icon }}</div>
+        <h3>{{ h.title }}</h3>
+        <p>{{ h.desc }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEARBY -->
+  <section class="section fade-in">
+    <h2>Nearby Attractions</h2>
+    <div class="grid grid--nearby">
+      <article class="place" *ngFor="let p of nearby">
+        <img [src]="p.img" [alt]="p.name" />
+        <div class="place__content">
+          <h3>{{ p.name }}</h3>
+          <p>{{ p.desc }}</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</section>

@@ -1,0 +1,230 @@
+:host {
+  --primary: #1a73e8;
+  --secondary: #0b57d0;
+  --accent: #90e0ef;
+  --white: #ffffff;
+  --text-light: rgba(255, 255, 255, 0.85);
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  font-family: "Google Sans Flex", "Poppins", Arial, sans-serif;
+}
+
+/* 🌠 Animated Background */
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://plus.unsplash.com/premium_photo-1673697239981-389164b7b87f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1688");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(6px) brightness(0.8);
+  animation: bgMotion 14s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes bgMotion {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* ⚙️ Layout */
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* 🧊 Login Card */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(25px);
+  background: var(--glass-bg);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: var(--shadow);
+  text-align: center;
+  color: var(--text-light);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.35);
+}
+.travelname{
+  color: black;
+}
+.explorername{
+  font-weight: 100;
+  color: #0071e3;
+}
+@keyframes fadeInUp {
+  from { transform: translateY(25px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ✨ Title */
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+/* 🧾 Input Fields */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 93%;
+  padding: 12px 12px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--white);
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.input-group label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 15px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.input-group input:focus,
+.input-group input:valid {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(144, 224, 239, 0.3);
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -8px;
+  left: 10px;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0 6px;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+/* 🚀 Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border: none;
+  border-radius: 10px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* 🔹 Divider */
+.divider {
+  margin: 25px 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+/* 🌐 Social Buttons */
+.social-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.social-buttons button {
+  flex: 1;
+  padding: 12px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  color: var(--white);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.social-buttons button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.google-btn img {
+  width: 20px;
+}
+
+.facebook-btn i {
+  font-size: 20px;
+  color: #1877f2;
+}
+
+/* 🔻 Bottom Text */
+.bottom-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.register-link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-weight: 500;
+  margin-left: 5px;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.register-link:hover {
+  color: var(--white);
+}
+
+/* 📱 Responsive */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 30px 25px;
+  }
+}

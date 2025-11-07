@@ -1,0 +1,41 @@
+<div class="city-hero" [style.background-image]="'url(' + city.heroImage + ')'">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>{{ city.name }}</h1>
+    <p class="hero-subtitle">{{ city.tagline }}</p>
+  </div>
+</div>
+
+<section class="city-content">
+  <!-- Intro -->
+  <div class="intro">
+    <h2>Explore {{ city.name }}</h2>
+    <p class="intro-text" [innerHTML]="city.description"></p>
+  </div>
+
+  <!-- Attractions -->
+  <div class="places">
+    <a
+      class="place-card"
+      *ngFor="let a of city.attractions"
+      [href]="a.link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img [src]="a.image" [alt]="a.name" />
+      <div class="card-text">
+        <h3>{{ a.name }}</h3>
+        <p>{{ a.desc }}</p>
+        <span class="read-more">Explore →</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- Travel Tips -->
+  <div class="travel-tips">
+    <h2>Travel Essentials</h2>
+    <ul>
+      <li *ngFor="let tip of city.travelTips">{{ tip }}</li>
+    </ul>
+  </div>
+</section>

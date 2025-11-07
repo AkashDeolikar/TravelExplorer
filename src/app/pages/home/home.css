@@ -1,0 +1,1751 @@
+/* 🍏 Base Section */
+.apple-hero.dark-mode {
+  position: relative;
+  width: 100%;
+  min-height: 30vh;
+  background: radial-gradient(circle at 50% 20%, #0a0a0a, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter",
+    sans-serif;
+  color: #f5f5f7;
+  padding: 8rem 2rem;
+  isolation: isolate;
+}
+
+/* 🌫️ Subtle center glow */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(0, 0, 0, 0.95) 80%);
+  z-index: 0;
+  filter: blur(100px);
+  opacity: 0.7;
+}
+
+/* 🧭 Content layout */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6rem;
+  max-width: 1400px;
+  width: 100%;
+  transform: translateY(0);
+  transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 1.2s ease-out;
+  opacity: 1;
+}
+
+/* ✨ Text Area */
+.hero-text {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.8rem;
+  background: linear-gradient(90deg, #ffffff, #b8b8b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-text h1 span {
+  background: linear-gradient(90deg, #0071e3, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+  color: #a1a1a6;
+  line-height: 1.8;
+  max-width: 520px;
+  margin-bottom: 2.8rem;
+  font-weight: 400;
+}
+
+/*  Button */
+.apple-btn {
+  display: inline-block;
+  background: #0071e3;
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 980px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  box-shadow: 0 10px 30px rgba(0, 113, 227, 0.25);
+}
+
+.apple-btn:hover {
+  background: #0077ed;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 113, 227, 0.4);
+}
+
+/*  Image */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 50%;
+  max-width: 520px;
+  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.6));
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.2s ease-in-out;
+}
+
+.hero-image img:hover {
+  transform: scale(1.08) translateY(-10px);
+  filter: drop-shadow(0 60px 120px rgba(0, 113, 227, 0.3));
+}
+
+/* ⚡ Subtle Float Animation (optional) */
+.hero-image img {
+  animation: floatSoft 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatSoft {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-12px);
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-text p {
+    margin: 0 auto 2.5rem;
+  }
+
+  .hero-image img {
+    width: 75%;
+  }
+}
+
+@media (max-width: 600px) {
+  .apple-hero.dark-mode {
+    padding: 5rem 1.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .apple-btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.6rem;
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+[data-reveal].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/*  */
+/* --- Uncover India Section Styles --- */
+.uncoverindia {
+  /* Background color is not visible in the screenshot, so I'll use a neutral one. 
+       If this section is meant to be a full-screen display, the background might 
+       be transparent or match the page body. I'll stick to a neutral gray-blue. */
+  background-color: #f0f2f5;
+  padding: 4rem 0;
+  /* Remove horizontal padding since the hero card is wide */
+  text-align: center;
+}
+
+.section-subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #444;
+  /* Darker color for subtitle */
+  font-size: clamp(16px, 2.5vw, 24px);
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle::before,
+.section-subtitle::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+  /* Lighter divider lines */
+  margin: 0 1rem;
+}
+
+.section-title {
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #172B4D;
+  /* Dark blue color for main title */
+  margin-bottom: 3rem;
+}
+
+/* --- Hero Card Styles (New) --- */
+.hero-card-item {
+  display: block;
+  position: relative;
+  width: 80%;
+  /* Takes up most of the screen width */
+  margin: 0 auto 3rem auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  color: #fff;
+}
+
+.hero-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.hero-card-item:hover .hero-card-image {
+  transform: scale(1.05);
+}
+
+.hero-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Gradient overlay from bottom to create contrast for text */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+  display: flex;
+  align-items: flex-end;
+  /* Push content to the bottom */
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+.hero-card-title {
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.hero-card-subtitle {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.hero-card-location {
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* Red dot/pin color from the screenshot */
+  color: #F87171;
+}
+
+
+/* --- Standard Carousel Styles (Adjusted) --- */
+.carousel-wrap {
+  position: relative;
+  /* Adjust width to ensure the small cards are contained and centered */
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  gap: 1.5rem;
+  padding: 10px 0;
+  /* Add padding for box-shadow visibility */
+  transition: transform 0.3s ease;
+}
+
+.card-item {
+  flex: 0 0 320px;
+  /* Slightly wider cards */
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #000;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card-item:hover {
+  transform: translateY(-5px);
+}
+
+.card-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+  text-align: left;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.card-location {
+  font-size: 0.8rem;
+  color: #059669;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Carousel Buttons */
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #059669;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  width: 40px;
+  /* Fixed size */
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-prev {
+  left: 1rem;
+}
+
+.carousel-next {
+  right: 1rem;
+}
+
+/* Discover Button */
+.discover-btn {
+  margin-top: 3rem;
+}
+
+.btn-primary {
+  background-color: #059669;
+  color: #fff;
+  padding: 0.75rem 2.5rem;
+  /* Increased padding */
+  border: 2px solid #059669;
+  /* Solid border for better look */
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #047d58;
+  border-color: #047d58;
+}
+
+/* Responsive */
+@media(max-width:1024px) {
+  .hero-card-item {
+    width: 95%;
+    /* Make hero card full width on smaller screens */
+  }
+}
+
+@media(max-width:768px) {
+  .card-item {
+    flex: 0 0 90%;
+    /* Single card on mobile for better viewing */
+  }
+
+  .hero-card-title {
+    font-size: 3rem;
+  }
+
+  .hero-card-overlay {
+    padding: 2rem;
+  }
+}
+
+/* --- UNCOVER INDIA --- */
+.uncoverindia {
+  width: 100%;
+  background: linear-gradient(180deg, #c2c2c180 0%, #d9d9d9 100%);
+  text-align: center;
+  color: #fff;
+  padding: 4rem 1rem;
+  font-family: 'Google Sans', 'Poppins', 'Helvetica Neue', sans-serif;
+  overflow: hidden;
+}
+
+/* Subheading */
+.section-subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.section-subtitle::before,
+.section-subtitle::after {
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 40px;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+/* Main heading */
+.section-title {
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Carousel layout */
+.carousel-wrap {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.carousel {
+  display: flex;
+  /* overflow-x: auto; */
+  scroll-behavior: smooth;
+  gap: 1.5rem;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card styling */
+.hero-card-item {
+  flex: 0 0 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.hero-card-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-card-image {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Overlay */
+.hero-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.6));
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-card-content {
+  padding: 1rem 1.2rem;
+  text-align: left;
+}
+
+.hero-card-title {
+  text-transform: uppercase;
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  letter-spacing: 1px;
+}
+
+.hero-card-subtitle {
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  color: #e4e4e4;
+  opacity: 0.9;
+}
+
+.hero-card-location {
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  color: #ffd;
+  font-weight: lighter;
+  margin-top: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(252, 77, 77, 0.632);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  transition: background 0.3s;
+  backdrop-filter: blur(6px);
+  z-index: 2;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+/* Discover Button */
+.discover-btn {
+  margin-top: 2rem;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #e2b236;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero-card-item {
+    flex: 0 0 250px;
+  }
+
+  .hero-card-image {
+    height: 300px;
+  }
+}
+
+
+/* --- TRAVEL MODES/GET STARTED SECTION STYLES --- */
+/*  */
+/* --- Section Layout --- */
+.transport {
+  position: relative; /* ✅ Needed for ::before to stay inside */
+  text-align: center;
+  background: linear-gradient(to bottom, #061a3a, #0b234a);
+  color: #fff;
+  padding: 80px 20px;
+  overflow: hidden;
+}
+
+.transport::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://www.incredibleindia.gov.in/content/dam/incredible-india/images/global/background-images/flight-home-page-bg.jpg')
+    center/cover no-repeat;
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.transport * {
+  position: relative;
+  z-index: 1;
+}
+
+.transportHeading {
+  font-size: 1.6rem;
+  opacity: 0.9;
+}
+
+.transportHeadingMain {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 1rem 0 3rem;
+}
+
+.travel-modes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.travel-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  width: 160px;
+  height: 120px;
+  display: flex;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  letter-spacing: 1.1px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.travel-card i {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.travel-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ff5252;
+}
+
+/* --- Modal --- */
+.redirect-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+}
+
+.redirect-content {
+  background: #fff;
+  color: #333;
+  border-radius: 12px;
+  max-width: 550px;
+  width: 90%;
+  text-align: center;
+  padding: 2rem 2.5rem;
+  position: relative;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.redirect-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.redirect-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.redirect-logos img {
+  height: 50px;
+  object-fit: contain;
+}
+
+.redirect-logos i {
+  font-size: 2rem;
+  color: #e53935;
+}
+
+.redirect-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.accept-btn,
+.decline-btn {
+  border: none;
+  padding: 10px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.accept-btn {
+  background: #e53935;
+  color: white;
+}
+
+.accept-btn:hover {
+  background: #c62828;
+}
+
+.decline-btn {
+  background: #ddd;
+  color: #333;
+}
+
+.decline-btn:hover {
+  background: #bbb;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #666;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+/*--------------------*/
+/*--------------------*/
+/* ==========================================================
+   CRAFTS SECTION (Based on Screenshot)
+   ========================================================== */
+
+/* Define variables specific to this section's colors */
+:host {
+  --crafts-primary: #d93025;
+  --crafts-bg: #f9f9fb;
+  --text-dark: #1d1d1f;
+  --text-light: #6e6e73;
+  --radius: 20px;
+  --shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  --transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* === Section === */
+.crafts-section {
+  width: 100%;
+  background: var(--crafts-bg);
+  padding-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* === Header === */
+.crafts-header {
+  text-align: center;
+  background: linear-gradient(135deg, #e32d1e, #ff483a);
+  color: #fff;
+  padding: 4rem 1rem 6rem;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  box-shadow: inset 0 -20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.crafts-title {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Poppins", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: clamp(2rem, 8vw, 5rem);
+  margin-bottom: 0.5rem;
+}
+
+.crafts-subtitle {
+  font-family: "SF Pro Text", "Helvetica Neue", sans-serif;
+  font-size: clamp(1rem, 3vw, 1.8rem);
+  font-weight: 400;
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crafts-subtitle::before,
+.crafts-subtitle::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 40px;
+  background: rgba(255, 255, 255, 0.4);
+  margin: 0 12px;
+}
+
+/* === Scroll Hint === */
+.crafts-scroll-hint {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1rem;
+  margin: 1rem 0 2rem;
+  opacity: 0.7;
+  user-select: none;
+}
+
+/* === Horizontal Scroll === */
+.crafts-scroll {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0px 2px 2rem 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.crafts-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.crafts-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.crafts-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* === Card === */
+.craft-card {
+  flex: 0 0 auto;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-dark);
+  transform: translateY(20px);
+  transition: transform var(--transition), box-shadow var(--transition);
+  scroll-snap-align: start;
+}
+
+.craft-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* === Image === */
+.craft-image-wrap {
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+
+.craft-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+  will-change: transform;
+}
+
+.craft-card:hover .craft-image {
+  transform: scale(1.08);
+}
+
+/* === Content === */
+.craft-content {
+  padding: 1.2rem 1.4rem 1.5rem;
+  text-align: left;
+}
+
+.craft-state {
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: Tahoma, sans-serif;
+  color: var(--crafts-primary);
+  letter-spacing: 0.6px;
+  margin-bottom: 0.3rem;
+}
+
+.craft-name {
+  font-family: "SF Pro Display", "Poppins", sans-serif;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  line-height: 1.35;
+  opacity: 0.9;
+  transition: color 0.3s ease;
+}
+
+.craft-card:hover .craft-name {
+  color: #000;
+}
+
+/* === Animation === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .crafts-header {
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .crafts-title {
+    font-size: 2.8rem;
+  }
+
+  .crafts-scroll {
+    gap: 1.2rem;
+    padding: 0 1rem 2rem;
+  }
+
+  .craft-card {
+    width: 240px;
+    border-radius: 16px;
+  }
+
+  .crafts-scroll-hint {
+    font-size: 0.85rem;
+  }
+}
+
+
+/**/
+/**/
+/* --- Attractions Section Styles (New) --- */
+
+/* Define variables specific to this section's colors */
+/* 🌈 Base setup */
+.attractions-section {
+  position: relative;
+  width: 100%;
+  padding: 6rem 0rem 0rem;
+  background: radial-gradient(circle at 30% 10%, #f9fafc, #eef2f6);
+  overflow: hidden;
+  text-align: center;
+  font-family: 'SF Pro Display', 'Inter', sans-serif;
+  color: #1c1c1e;
+}
+
+/* ✨ Header */
+.attractions-header {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.attractions-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #111;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.attractions-subtitle {
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: #777;
+}
+
+.header-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.6), transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+  animation: glowMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(-40%, -45%) scale(1.15); }
+}
+
+/* 🌍 Carousel Wrapper */
+.attractions-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attractions-carousel-track {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.attraction-card {
+  flex: 0 0 auto;
+  width: 300px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  scroll-snap-align: center;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.attraction-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* 🖼️ Image Wrap */
+.attraction-image-wrap {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.attraction-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.attraction-card:hover .attraction-image {
+  transform: scale(1.1) rotate(1deg);
+}
+
+/* ✨ Light Overlay on Image */
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.attraction-card:hover .image-overlay {
+  opacity: 1;
+}
+
+/* 📖 Content */
+.attraction-content {
+  padding: 1.2rem 1.5rem 2rem;
+  text-align: left;
+}
+
+.attraction-state {
+  font-size: 0.9rem;
+  color: #0071e3;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+}
+
+.attraction-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #111;
+  line-height: 1.3;
+}
+
+/* 🎛️ Nav Buttons */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.carousel-nav-btn:hover {
+  background: rgba(255,255,255,0.95);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav-btn i {
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.prev { left: 1rem; }
+.next { right: 1rem; }
+
+/* 🎞️ Fade Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 900px) {
+  .attraction-card {
+    width: 260px;
+  }
+  .attraction-image-wrap {
+    height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .attractions-section {
+    padding: 4rem 1rem;
+  }
+
+  .attractions-title {
+    font-size: 2rem;
+  }
+
+  .attraction-card {
+    width: 220px;
+  }
+
+  .carousel-nav-btn {
+    display: none;
+  }
+}
+
+
+/**/
+/**/
+/* --- DESTINATION SECTION STYLES (OVERHAUL) --- */
+
+/* --- DESTINATION SECTION STYLES (OVERHAUL & REFINED) --- */
+
+:host {
+  --apple-black: #000;
+  --apple-gray: #121212;
+  --apple-light: #fff;
+  --apple-accent: #0071e3;
+  --transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  --font-apple: "SF Pro Display", "Poppins", "Inter", sans-serif;
+}
+
+/* === Section === */
+.destination-section {
+  width: 100%;
+  background: var(--apple-black);
+  color: var(--apple-light);
+  overflow: hidden;
+  position: relative;
+}
+
+/* === Header === */
+.destination-header {
+  text-align: center;
+  padding: 1rem 0rem 1rem;
+}
+
+.destination-title {
+  font-family: var(--font-apple);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  background: linear-gradient(90deg, #fff, #ccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.destination-subtitle {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  opacity: 0.7;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* === Slider === */
+.destination-slider-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.destination-slider-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.destination-slider-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* === Slide === */
+.destination-slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100vh;
+  min-height: 600px;
+  scroll-snap-align: center;
+  overflow: hidden;
+  background: var(--apple-gray);
+  text-decoration: none;
+  color: var(--apple-light);
+  transition: transform var(--transition);
+}
+
+.destination-slide:hover {
+  transform: scale(1.01);
+}
+
+/* === Slide Image === */
+.destination-slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75) saturate(1.1);
+  transition: transform 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transform: scale(1);
+}
+
+.destination-slide:hover .destination-slide-image {
+  transform: scale(1.08);
+}
+
+/* === Overlay === */
+.destination-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 10%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 2rem 8rem;
+}
+
+/* === Content === */
+.slide-content {
+  max-width: 680px;
+  margin: auto;
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.slide-city-name {
+  font-family: var(--font-apple);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.5px;
+}
+
+.slide-desc {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 300;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+/* === Button === */
+.discover-more-btn {
+  display: inline-block;
+  background: var(--apple-accent);
+  color: #fff;
+  padding: 1rem 2.4rem;
+  border-radius: 40px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all var(--transition);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* box-shadow: 0 8px 20px rgba(0, 113, 227, 0.4); */
+}
+
+.discover-more-btn:hover {
+  background: #0a84ff;
+  transform: translateY(-4px);
+  /* box-shadow: 0 10px 28px rgba(0, 113, 227, 0.55); */
+}
+
+/* === Navigation Buttons === */
+.destination-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(253, 195, 69, 0.812);
+  color: #fff;
+  border: none;
+  font-size: 2.6rem;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.destination-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.destination-nav-btn.prev {
+  left: 1.5rem;
+}
+
+.destination-nav-btn.next {
+  right: 1.5rem;
+}
+
+/* === Animation === */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .destination-header {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .slide-city-name {
+    font-size: 2.4rem;
+  }
+
+  .slide-desc {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .discover-more-btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  .destination-nav-btn {
+    font-size: 2rem;
+  }
+}
+
+
+
+/*  */
+/*  */
+/* ------------------------------------------- */
+/* 1. GLOBAL DEFINITIONS & LAYOUT */
+/* ------------------------------------------- */
+
+.newindia360 {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 🧭 Fix for mobile viewport height issues (address bar shrinking) */
+@supports (height: 100dvh) {
+  .newindia360 {
+    height: 100dvh;
+    /* Dynamic viewport height for modern browsers */
+  }
+}
+
+/* 📱 Small screens optimization */
+@media (max-width: 768px) {
+  .newindia360 {
+    height: 55vh;
+    /* Let content flow naturally */
+    min-height: 65dvh;
+    /* Still fills screen visually */
+    overflow: hidden;
+  }
+
+  .newbackground-video {
+    object-fit: contain;
+    /* Prevent video cropping on small screens */
+    width: 100%;
+    height: 100%;
+  }
+
+  .newoverlay-content {
+    padding-bottom: 4vh;
+    /* Give breathing space at bottom */
+  }
+}
+
+
+/* Inner wrappers (like inc-video-control) */
+.newvideo-container {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.newvideo-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.newbackground-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Overlay content */
+.newoverlay-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  /* push to lower end */
+  width: 100%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 2vw 3vh;
+}
+
+/* Category navigation */
+.newcategory-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.newcategory-nav a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1.3px;
+  opacity: 0.8;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.newcategory-nav a:hover {
+  color: #ffdb00;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.newcategory-nav a.active {
+  color: #ffdb00;
+  opacity: 1;
+}
+
+.newcategory-nav a:not(:last-child)::after {
+  content: '|';
+  margin-left: 0.5rem;
+  color: #ffdb00;
+  font-weight: 300;
+}
+
+/* Mute button */
+.mute-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffdb00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  font-size: 28px;
+}
+
+.mute-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+
+/*  */
+/*  */
+.expand-btn-container {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.expand-btn {
+  background: linear-gradient(135deg, #0071e3, #004aad);
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.expand-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 113, 227, 0.3);
+}
+
+.expanded-sections {
+  animation: fadeInUp 0.8s ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/*  */
+/*  */
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.destination-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.4s ease;
+}
+
+.destination-card:hover {
+  transform: scale(1.05);
+}
+
+.destination-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.destination-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+}
+
+.discover-btn {
+  display: inline-block;
+  background: #0071e3;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/*  */
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 3rem 4%;
+  justify-items: center;
+}
+
+.destination-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.destination-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.destination-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+}
+
+.destination-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.discover-btn {
+  background: #0071e3;
+  border: none;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 0.6rem;
+  transition: background 0.3s;
+}
+
+.discover-btn:hover {
+  background: #005bb5;
+}

@@ -1,0 +1,296 @@
+[{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502ef5"
+  },
+  "name": "Jharkhand",
+  "capital": "Ranchi",
+  "imageUrl": "https://images.unsplash.com/photo-1653305436918-d2fa7f5b6b27?q=80&w=714&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502ef7"
+  },
+  "name": "Kerala",
+  "capital": "Thiruvananthapuram",
+  "imageUrl": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502ef8"
+  },
+  "name": "Madhya Pradesh",
+  "capital": "Bhopal",
+  "imageUrl": "https://plus.unsplash.com/premium_photo-1661930618375-aafabc2bf3e7?q=80&w=1099&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502ef9"
+  },
+  "name": "Maharashtra",
+  "capital": "Mumbai",
+  "imageUrl": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f05"
+  },
+  "name": "Tripura",
+  "capital": "Agartala",
+  "imageUrl": "https://images.unsplash.com/photo-1660541545820-466ec249fe02?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f0c"
+  },
+  "name": "Delhi",
+  "capital": "New Delhi",
+  "imageUrl": "https://plus.unsplash.com/premium_photo-1661919589683-f11880119fb7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502ef6"
+  },
+  "name": "Karnataka",
+  "capital": "Bengaluru",
+  "imageUrl": "https://images.unsplash.com/photo-1600112356915-089abb8fc71a?q=80&w=1294&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502efc"
+  },
+  "name": "Mizoram",
+  "capital": "Aizawl",
+  "imageUrl": "https://images.unsplash.com/photo-1629406352863-7b697c415d30?q=80&w=1263&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502efe"
+  },
+  "name": "Odisha",
+  "capital": "Bhubaneswar",
+  "imageUrl": "https://images.unsplash.com/photo-1633410195091-bd66114cef5f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502eff"
+  },
+  "name": "Puducherry",
+  "capital": "Puducherry",
+  "imageUrl": "https://images.unsplash.com/photo-1726673069156-4f6a396c2a8f?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f07"
+  },
+  "name": "Uttarakhand",
+  "capital": "Dehradun",
+  "imageUrl": "https://images.unsplash.com/photo-1612438214708-f428a707dd4e?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502efa"
+  },
+  "name": "Manipur",
+  "capital": "Imphal",
+  "imageUrl": "https://plus.unsplash.com/premium_photo-1666865792731-0a2656f2b12c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f00"
+  },
+  "name": "Punjab",
+  "capital": "Chandigarh",
+  "imageUrl": "https://plus.unsplash.com/premium_photo-1697730324062-c012bc98eb13?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f0b"
+  },
+  "name": "Dadra and Nagar Haveli and Daman and Diu",
+  "capital": "Daman",
+  "imageUrl": "https://images.unsplash.com/photo-1569776186059-f26b84be14b0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f0e"
+  },
+  "name": "Puducherry",
+  "capital": "Puducherry",
+  "imageUrl": "https://assets.cntraveller.in/photos/60ba05b2ce82080a5bb732ae/16:9/w_1024%2Cc_limit/Beachhunambar.jpg"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502eed"
+  },
+  "name": "Arunachal Pradesh",
+  "capital": "Itanagar",
+  "imageUrl": "https://images.unsplash.com/photo-1672399444836-3f2d667ded8e?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502ef3"
+  },
+  "name": "Haryana",
+  "capital": "Chandigarh",
+  "imageUrl": "https://images.unsplash.com/photo-1574929751963-9c6181261276?q=80&w=648&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502efd"
+  },
+  "name": "Nagaland",
+  "capital": "Kohima",
+  "imageUrl": "https://images.unsplash.com/photo-1580921130259-5048f1409ace?q=80&w=1334&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f01"
+  },
+  "name": "Rajasthan",
+  "capital": "Jaipur",
+  "imageUrl": "https://plus.unsplash.com/premium_photo-1661962428918-6a57ab674e23?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502eec"
+  },
+  "name": "Andhra Pradesh",
+  "capital": "Amaravati",
+  "imageUrl": "https://plus.unsplash.com/premium_photo-1661963629241-52c812d5c7f8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502eee"
+  },
+  "name": "Assam",
+  "capital": "Dispur",
+  "imageUrl": "https://images.unsplash.com/photo-1615472910606-9d4f7291944f?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502ef1"
+  },
+  "name": "Goa",
+  "capital": "Panaji",
+  "imageUrl": "https://images.unsplash.com/photo-1581892197913-fd2e407e698a?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f0d"
+  },
+  "name": "Lakshadweep",
+  "capital": "Kavaratti",
+  "imageUrl": "https://images.unsplash.com/photo-1572431447238-425af66a273b?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f0f"
+  },
+  "name": "Jammu and Kashmir",
+  "capital": "Srinagar (Summer), Jammu (Winter)",
+  "imageUrl": "https://images.unsplash.com/photo-1616190419596-e2839e7380d7?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502ef4"
+  },
+  "name": "Himachal Pradesh",
+  "capital": "Shimla",
+  "imageUrl": "https://plus.unsplash.com/premium_photo-1697729733902-f8c92710db07?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f02"
+  },
+  "name": "Sikkim",
+  "capital": "Gangtok",
+  "imageUrl": "https://images.unsplash.com/photo-1573398643956-2b9e6ade3456?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f06"
+  },
+  "name": "Uttar Pradesh",
+  "capital": "Lucknow",
+  "imageUrl": "https://images.unsplash.com/photo-1706185619150-9515423d32fc?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502ef0"
+  },
+  "name": "Chhattisgarh",
+  "capital": "Raipur",
+  "imageUrl": "https://images.unsplash.com/photo-1673462107499-97848ff888b9?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502efb"
+  },
+  "name": "Meghalaya",
+  "capital": "Shillong",
+  "imageUrl": "https://images.unsplash.com/photo-1609276804051-8c5e906cc430?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f08"
+  },
+  "name": "West Bengal",
+  "capital": "Kolkata",
+  "imageUrl": "https://images.unsplash.com/photo-1575392884524-304bbe4af54b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f09"
+  },
+  "name": "Andaman and Nicobar Islands",
+  "capital": "Port Blair",
+  "imageUrl": "https://images.unsplash.com/photo-1640618792277-b91f3199f6a8?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f10"
+  },
+  "name": "Ladakh",
+  "capital": "Leh",
+  "imageUrl": "https://images.unsplash.com/photo-1600438831035-48f5f196d3bf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502eef"
+  },
+  "name": "Bihar",
+  "capital": "Patna",
+  "imageUrl": "https://images.unsplash.com/photo-1629561918009-339e516be72f?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502ef2"
+  },
+  "name": "Gujarat",
+  "capital": "Gandhinagar",
+  "imageUrl": "https://images.unsplash.com/photo-1723871569771-7d1bf1d67628?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f03"
+  },
+  "name": "Tamil Nadu",
+  "capital": "Chennai",
+  "imageUrl": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f04"
+  },
+  "name": "Telangana",
+  "capital": "Hyderabad",
+  "imageUrl": "https://images.unsplash.com/photo-1589820745312-e04227bf8843?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+  "_id": {
+    "$oid": "68e14fa08faaff0720502f0a"
+  },
+  "name": "Chandigarh",
+  "capital": "Chandigarh",
+  "imageUrl": "https://plus.unsplash.com/premium_photo-1734607187660-5d9dafc16982?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+}]

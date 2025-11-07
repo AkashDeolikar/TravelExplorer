@@ -1,0 +1,194 @@
+:host, .dawar-page {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Poppins", sans-serif;
+  background-color: #fff;
+  color: #111;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* === HERO === */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  perspective: 1000px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://vargiskhan.com/log/wp-content/uploads/2022/04/srinagar-to-dawar-4.jpg') center/cover no-repeat;
+  transform: scale(1.1);
+  filter: brightness(0.65);
+  transition: transform 2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+  opacity: 0.7;
+  transition: opacity 1s ease;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 0 1rem;
+  transform: translateY(0);
+  transition: transform 0.8s ease, opacity 1s ease;
+}
+.hero-content h1 {
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  opacity: 0.9;
+  max-width: 640px;
+  margin: 1.5rem auto;
+}
+.hero-content button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #000;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.hero-content button:hover {
+  background: #0071e3;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* === SECTION STRUCTURE === */
+.section {
+  max-width: 1200px;
+  margin: 10rem auto;
+  padding: 0 2rem;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === ABOUT === */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+.about .image {
+  width: 100%;
+  height: 480px;
+  border-radius: 28px;
+  background: url('https://images.unsplash.com/photo-1580632051686-4c6b8918e74c?auto=format&fit=crop&w=1000&q=80') center/cover;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+.about .content h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+.about .content p {
+  line-height: 1.8;
+  color: #333;
+}
+
+/* === WEATHER === */
+.weather {
+  text-align: center;
+}
+.temp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1.2rem;
+  margin-top: 3rem;
+}
+.temp-card {
+  background: #fafafa;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: transform 0.4s ease;
+}
+.temp-card:hover {
+  transform: translateY(-6px);
+}
+.temp-card span {
+  display: block;
+  color: #555;
+}
+.temp-card strong {
+  font-size: 1.1rem;
+  background: linear-gradient(90deg, #0071e3, #00bcd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === TRAVEL === */
+.travel ul {
+  list-style: none;
+  padding: 0;
+}
+.travel li {
+  margin: 0.6rem 0;
+  font-size: 1.05rem;
+  color: #222;
+}
+
+/* === NEARBY === */
+.nearby-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.nearby-links a {
+  background: #000;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.8rem 1.8rem;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+.nearby-links a:hover {
+  background: #0071e3;
+  transform: translateY(-4px);
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 4rem 1rem;
+  font-size: 0.95rem;
+  color: #555;
+  border-top: 1px solid #e5e5e5;
+  background: #fafafa;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+  .about .image {
+    order: -1;
+    height: 320px;
+  }
+}

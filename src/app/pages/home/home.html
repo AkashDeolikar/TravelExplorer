@@ -1,0 +1,1341 @@
+<section class="home-page">
+
+  <section class="newindia360">
+    <div class="newvideo-container">
+      <div class="newvideo-wrapper">
+        <video #backgroundVideo class="newbackground-video" autoplay loop muted playsinline [src]="currentVideoUrl">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="newoverlay-content">
+      <!-- Category Navigation -->
+      <nav class="newcategory-nav">
+        <a *ngFor="let category of getCategories()" href="javascript:void(0)" (click)="changeVideo(category)"
+          [class.active]="currentVideoKey === category">
+          {{ category }}
+        </a>
+      </nav>
+
+      <!-- Mute / Unmute Button -->
+      <button class="mute-btn" (click)="toggleMute()">
+        <span class="material-icons">
+          {{ isMuted ? 'volume_off' : 'volume_up' }}
+        </span>
+      </button>
+    </div>
+  </section>
+
+
+
+  <!-- HERO SECTION -->
+  <app-hero></app-hero>
+
+  <div class="destination-grid">
+    <a *ngFor="let place of featuredPlaces | slice:0:6" [routerLink]="'/place/' + place.slug" class="destination-card">
+      <img [src]="place.hero?.image" [alt]="place.hero?.title" class="destination-image" />
+      <div class="destination-overlay">
+        <h2 class="destination-name">{{ place.hero?.title }}</h2>
+        <p class="destination-subtitle">{{ place.hero?.subtitle }}</p>
+        <span class="discover-btn">Discover More</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="expand-btn-container">
+    <button class="expand-btn" (click)="toggleMore()">
+      {{ showMore ? 'Show Less ↑' : 'Explore More ↓' }}
+    </button>
+  </div>
+
+  <div *ngIf="showMore" class="destination-grid extra expanded-sections">
+    <a *ngFor="let place of featuredPlaces | slice:6" [routerLink]="'/place/' + place.slug" class="destination-card">
+      <img [src]="place.hero?.image" [alt]="place.hero?.title" class="destination-image" />
+      <div class="destination-overlay">
+        <h2 class="destination-name">{{ place.hero?.title }}</h2>
+        <p class="destination-subtitle">{{ place.hero?.subtitle }}</p>
+      </div>
+    </a>
+  </div>
+
+
+  <!-- ABOUT SECTION -->
+  <section class="apple-hero dark-mode">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>
+          Explore the <span>Future</span> of Travel
+        </h1>
+        <p>
+          Experience India like never before. A symphony of heritage, wilderness,
+          and adventure — reimagined in cinematic depth and motion.
+        </p>
+        <a routerLink="/guide" class="apple-btn">Meet Our Guides</a>
+      </div>
+
+      <div class="hero-image">
+        <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Travel Illustration" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- UNCOVER INDIA SLIDER -->
+  <section class="uncoverindia">
+    <p class="section-subtitle">Uncover India's</p>
+    <h1 class="section-title">Lesser Known Wonders</h1>
+
+    <div class="carousel-wrap">
+      <button class="carousel-btn prev" id="prev"><i class="bi bi-chevron-left"></i></button>
+      <div class="carousel" id="carousel">
+
+        <!-- CARD 1 -->
+        <a routerLink="/explorekhajjiar" class="hero-card-item">
+          <img
+            src="https://images.unsplash.com/photo-1600491001617-36f4e8005cc1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=736"
+            alt="Madla - A gateway to nature's abode" class="hero-card-image">
+          <div class="hero-card-overlay">
+            <div class="hero-card-content">
+              <h2 class="hero-card-title">Khajjiar</h2>
+              <p class="hero-card-subtitle">A gateway to nature's abode</p>
+              <div class="hero-card-location"><i class="bi bi-geo-alt-fill"></i> Madhya Pradesh</div>
+            </div>
+          </div>
+        </a>
+
+        <a routerLink="/exploremadla" class="hero-card-item">
+          <img src="https://s7ap1.scene7.com/is/image/incredibleindia/madla-village-mp-rural-hero?qlt=82"
+            alt="Madla - A gateway to nature's abode" class="hero-card-image">
+          <div class="hero-card-overlay">
+            <div class="hero-card-content">
+              <h2 class="hero-card-title">Madla</h2>
+              <p class="hero-card-subtitle">A gateway to nature's abode</p>
+              <div class="hero-card-location"><i class="bi bi-geo-alt-fill"></i> Madhya Pradesh</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- CARD 2 -->
+        <a routerLink="/explorekanthalloor" class="hero-card-item">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/kanthalloor-village-kerala-rural-hero?qlt=82&ts=1726643529094"
+            alt="Madla - A gateway to nature's abode" class="hero-card-image">
+          <div class="hero-card-overlay">
+            <div class="hero-card-content">
+              <h2 class="hero-card-title">Kanthalloor</h2>
+              <p class="hero-card-subtitle">Kashmir of kerala</p>
+              <div class="hero-card-location"><i class="bi bi-geo-alt-fill"></i> Kerala</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- CARD 3 -->
+        <a routerLink="/exploredawar" class="hero-card-item">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/kanthalloor-village-kerala-rural-hero?qlt=82&ts=1726643529094"
+            alt="Madla - A gateway to nature's abode" class="hero-card-image">
+          <div class="hero-card-overlay">
+            <div class="hero-card-content">
+              <h2 class="hero-card-title">Dawar</h2>
+              <p class="hero-card-subtitle">The ancient capital of the Dards</p>
+              <div class="hero-card-location"><i class="bi bi-geo-alt-fill"></i>Jammu & Kashmir</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- CARD 4 -->
+        <a routerLink="/exploresarmoli" class="hero-card-item">
+          <img src="https://s7ap1.scene7.com/is/image/incredibleindia/pithoragarh-rural-hero?qlt=82"
+            alt="Sarmoli - The enchanting Himalayan haven" class="hero-card-image">
+          <div class="hero-card-overlay">
+            <div class="hero-card-content">
+              <h2 class="hero-card-title">Sarmoli</h2>
+              <p class="hero-card-subtitle">The enchanting Himalayan haven</p>
+              <div class="hero-card-location"><i class="bi bi-geo-alt-fill"></i> Uttarakhand</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- CARD 5 -->
+        <a routerLink="/explorereiek" class="hero-card-item">
+          <img src="https://s7ap1.scene7.com/is/image/incredibleindia/reiek-mountain-reiek-mizoram-rural-hero?qlt=82"
+            alt="Reiek - The home of majestic misty mountains!" class="hero-card-image">
+          <div class="hero-card-overlay">
+            <div class="hero-card-content">
+              <h2 class="hero-card-title">Reiek</h2>
+              <p class="hero-card-subtitle">The home of majestic misty mountains!</p>
+              <div class="hero-card-location"><i class="bi bi-geo-alt-fill"></i> Mizoram</div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+      <button class="carousel-btn next" id="next"><i class="bi bi-chevron-right"></i></button>
+    </div>
+
+  </section>
+
+  <!--  -->
+  <!--  -->
+  <section class="crafts-section" id="exquisite-crafts">
+    <div class="crafts-header">
+      <h1 class="crafts-title">EXQUISITE CRAFTS</h1>
+      <p class="crafts-subtitle">of timeless tradition</p>
+    </div>
+
+    <p class="crafts-scroll-hint">⇠ Scroll to explore ⇢</p>
+
+    <div class="crafts-scroll fade-group">
+      <a href="/getkhatwa" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/applique-khatwa-patch-work-bihar-craft-popular?qlt=82"
+            alt="Applique Khatwa Patch Work of Bihar" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Bihar</p>
+          <h2 class="craft-name">Applique – Khatwa Patch Work</h2>
+        </div>
+      </a>
+
+      <a href="/getmugasilk" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img src="https://s7ap1.scene7.com/is/image/incredibleindia/muga-silk-assam-craft-popular?qlt=82"
+            alt="Muga Silk of Assam" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Assam</p>
+          <h2 class="craft-name">Muga Silk</h2>
+        </div>
+      </a>
+
+      <a href="/getphulkri" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img src="https://s7ap1.scene7.com/is/image/incredibleindia/phulkari-1-craft-popular?qlt=82"
+            alt="Phulkari of Punjab" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Punjab</p>
+          <h2 class="craft-name">Phulkari</h2>
+        </div>
+      </a>
+
+      <!-- CARD 1: Warli Painting -->
+      <a href="/getwarli" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/warli-art-maharashtra-1-craft-popular?qlt=82&ts=1726674307786"
+            alt="Warli Painting" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Maharashtra</p>
+          <h2 class="craft-name">Warli Painting</h2>
+        </div>
+      </a>
+
+      <!-- CARD 2: Paunchei -->
+      <a href="/getpaunchei" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/mizo-puanchei-Mizoram-1-craft-popular?qlt=82&ts=1726641522775"
+            alt="Paunchei Weaving of Arunachal Pradesh" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Arunachal Pradesh</p>
+          <h2 class="craft-name">Paunchei Weaving</h2>
+        </div>
+      </a>
+
+      <!-- CARD 3: Kathputlis -->
+      <a href="/getkathputlis" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/kathputli-ka-khel-jaipur-rajasthan-1-craft-popular?qlt=82&ts=1726641359263"
+            alt="Kathputlis of Rajasthan" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Rajasthan</p>
+          <h2 class="craft-name">Kathputlis</h2>
+        </div>
+      </a>
+
+      <!-- CARD 4: Silver Filigree of Karimnagar -->
+      <a href="/getfiligree" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/Silver-Filigree-of-Karimnagar-1-craft-popular?qlt=82&ts=1726641447641"
+            alt="Silver Filigree of Karimnagar" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Telangana</p>
+          <h2 class="craft-name">Silver Filigree of Karimnagar</h2>
+        </div>
+      </a>
+
+      <!-- CARD 5: Zardozi Embroidery -->
+      <a href="/getzardozi" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img src="https://s7ap1.scene7.com/is/image/incredibleindia/zardozi-craft-city-pop?qlt=82&ts=1726674222033"
+            alt="Zardozi Embroidery of Uttar Pradesh" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Uttar Pradesh</p>
+          <h2 class="craft-name">Zardozi Embroidery</h2>
+        </div>
+      </a>
+
+      <!-- CARD 6: Aipan Art -->
+      <a href="/getaipan" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/Aipan-dehradun-uttarakhand-craft-popular?qlt=82&ts=1726641513604"
+            alt="Aipan Art of Uttarakhand" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Uttarakhand</p>
+          <h2 class="craft-name">Aipan Art</h2>
+        </div>
+      </a>
+
+      <!-- CARD 7: Santipore Saree -->
+      <a href="/getsaree" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/Santipore-Saree-west-bengal-craft-popular?qlt=82&ts=1726641491129"
+            alt="Santipore Saree of West Bengal" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">West Bengal</p>
+          <h2 class="craft-name">Santipore Saree</h2>
+        </div>
+      </a>
+
+      <!-- CARD 8: Durgi Stone Craft -->
+      <a href="/getdurgistone" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/Durgi-Stone-Carvings-andhra-pradesh-craft-popular?qlt=82&ts=1726641361494"
+            alt="Durgi Stone Craft of Andhra Pradesh" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Andhra Pradesh</p>
+          <h2 class="craft-name">Durgi Stone Craft</h2>
+        </div>
+      </a>
+
+      <!-- CARD 9: Walnut Wood Carving -->
+      <a href="/getwalnutwood" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/channapatna-toys-and-dolls-Karnataka-1-craft-popular?qlt=82&ts=1726641302188"
+            alt="Walnut Wood Carving of Kashmir" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Jammu & Kashmir</p>
+          <h2 class="craft-name">Walnut Wood Carving</h2>
+        </div>
+      </a>
+
+
+      <a href="/getbastardhokra" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/bastar-dhokra-bell-metal-dhokra-art-handicraft-chhattisgarh-1-craft-popular?qlt=82"
+            alt="Bastar Dhokra of Chhattisgarh" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Chhattisgarh</p>
+          <h2 class="craft-name">Bastar Dhokra</h2>
+        </div>
+      </a>
+
+      <a href="/getpatanpatola" class="craft-card fade-in">
+        <div class="craft-image-wrap">
+          <img src="https://s7ap1.scene7.com/is/image/incredibleindia/patan-patola-patan-gujarat-1-craft-popular?qlt=82"
+            alt="Patola of Gujarat" class="craft-image" />
+        </div>
+        <div class="craft-content">
+          <p class="craft-state">Gujarat</p>
+          <h2 class="craft-name">Patan Patola</h2>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!--  -->
+  <!--  -->
+  <section class="destination-section" id="major-destinations">
+    <!-- 🌍 Header -->
+    <div class="destination-header">
+      <h1 class="destination-title">Explore Destinations</h1>
+      <p class="destination-subtitle">Wander through India’s finest experiences</p>
+    </div>
+
+    <!-- 🌄 Slider -->
+    <div class="destination-slider-container">
+      <button class="destination-nav-btn prev" id="destination-prev-btn" aria-label="Previous Destination">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+
+      <div class="destination-slider-track" id="destination-slider-track">
+        <!-- Slide 1 -->
+        <a routerLink="/exploredestini/agartala" class="destination-slide">
+          <img src="https://s7ap1.scene7.com/is/image/incredibleindia/rudrasagar-lake-melaghar-2-attr-hero?qlt=82"
+            alt="Agartala" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Agartala</h2>
+              <p class="slide-desc">
+                Where culture meets calm — a royal blend of heritage and nature.
+              </p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Slide 2 -->
+        <a routerLink="/exploredestini/mechuka" class="destination-slide">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1697729733902-f8c92710db07?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+            alt="Mechuka Valley" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Mechuka</h2>
+              <p class="slide-desc">
+                A hidden Himalayan gem, where the skies touch the earth.
+              </p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Ziro -->
+        <a routerLink="/exploredestini/ziro" class="destination-slide">
+          <img src="https://tripandtales.com/wp-content/uploads/2025/05/Ziro-Valley.jpg" alt="Amritsar"
+            class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Ziro Valley</h2>
+              <p class="slide-desc">Stunning natural beauty, vibrant culture, and unique music festival.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Amritsar -->
+        <a routerLink="/exploredestini/amritsar" class="destination-slide">
+          <img src="https://plus.unsplash.com/premium_photo-1697730324062-c012bc98eb13?auto=format&fit=crop&q=80&w=1170"
+            alt="Amritsar" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Amritsar</h2>
+              <p class="slide-desc">Golden reflections of faith and history.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Delhi -->
+        <a routerLink="/exploredestini/delhi" class="destination-slide">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1661919589683-f11880119fb7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+            alt="Delhi" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Delhi</h2>
+              <p class="slide-desc">Where heritage meets modern marvels.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Leh -->
+        <a routerLink="/exploredestini/leh" class="destination-slide">
+          <img
+            src="https://images.unsplash.com/photo-1566323124508-c708b5524d61?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+            alt="Leh" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Leh</h2>
+              <p class="slide-desc">Breathtaking landscapes of the Himalayas.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Srinagar -->
+        <a routerLink="/exploredestini/srinagar" class="destination-slide">
+          <img
+            src="https://images.unsplash.com/photo-1614056965546-42fbe24eb36c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1529"
+            alt="Srinagar" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Srinagar</h2>
+              <p class="slide-desc">Heaven on Earth on the Dal Lake.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Manali -->
+        <a routerLink="/exploredestini/manali" class="destination-slide">
+          <img
+            src="https://images.unsplash.com/photo-1656437717503-971f67b6af21?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=784"
+            alt="Manali" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Manali</h2>
+              <p class="slide-desc">Snowy escapes and scenic mountain charm.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Chandigarh -->
+        <a routerLink="/exploredestini/chandigarh" class="destination-slide">
+          <img src="https://www.travelinindia.tours/UPLOAD/1603_Chandigarh-Rose-Garden.jpg" alt="Chandigarh"
+            class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Chandigarh</h2>
+              <p class="slide-desc">The city beautiful — green, clean, modern.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Gurugram -->
+        <a routerLink="/exploredestini/gurugram" class="destination-slide">
+          <img
+            src="https://images.unsplash.com/photo-1514392181188-8f5d54262fa5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+            alt="Gurugram" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Gurugram</h2>
+              <p class="slide-desc">The millennium city of India’s corporate pulse.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Udaipur -->
+        <a routerLink="/exploredestini/udaipur" class="destination-slide">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1661964079694-ccfaf7dc8028?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+            alt="Udaipur" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Udaipur</h2>
+              <p class="slide-desc">The city of lakes and royal heritage.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Haridwar -->
+        <a routerLink="/exploredestini/haridwar" class="destination-slide">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1697730398251-40cd8dc57e0b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+            alt="Haridwar" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Haridwar</h2>
+              <p class="slide-desc">Spiritual serenity on the banks of the Ganga.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Varanasi -->
+        <a routerLink="/exploredestini/varanasi" class="destination-slide">
+          <img
+            src="https://images.unsplash.com/photo-1599831069477-b2acdc0bcb91?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+            alt="Varanasi" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Varanasi</h2>
+              <p class="slide-desc">Timeless ghats and divine chants of the Ganges.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Goa -->
+        <a routerLink="/exploredestini/goa" class="destination-slide">
+          <img
+            src="https://images.unsplash.com/photo-1614082242765-7c98ca0f3df3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+            alt="Goa" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Goa</h2>
+              <p class="slide-desc">Sun, sand, and soulful vibes.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Mumbai -->
+        <a routerLink="/exploredestini/mumbai" class="destination-slide">
+          <img
+            src="https://images.unsplash.com/photo-1562979314-bee7453e911c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074"
+            alt="Mumbai" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Mumbai</h2>
+              <p class="slide-desc">The city of dreams, lights, and waves.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Dwarka -->
+        <a routerLink="/exploredestini/dwarka" class="destination-slide">
+          <img
+            src="https://images.unsplash.com/photo-1644647840725-5218072147b7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074"
+            alt="Dwarka" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Dwarka</h2>
+              <p class="slide-desc">Ancient city of Lord Krishna’s legend.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Hyderabad -->
+        <a routerLink="/exploredestini/hyderabad" class="destination-slide">
+          <img
+            src="https://s7ap1.scene7.com/is/image/incredibleindia/2-charminar_hyderabad_telangana-1-city-hero?qlt=82&ts=1742190636845"
+            alt="Hyderabad" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Hyderabad</h2>
+              <p class="slide-desc">The city of pearls and biryani delights.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Kochi -->
+        <a routerLink="/exploredestini/kochi" class="destination-slide">
+          <img
+            src="https://images.unsplash.com/photo-1605955794720-651b9ae7f5e7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1330"
+            alt="Kochi" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Kochi</h2>
+              <p class="slide-desc">Where the sea whispers old colonial tales.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Guwahati -->
+        <a routerLink="/exploredestini/guwahati" class="destination-slide">
+          <img
+            src="https://images.unsplash.com/photo-1611336814186-914161b9bdb6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1335"
+            alt="Guwahati" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Guwahati</h2>
+              <p class="slide-desc">Gateway to the serene northeast.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Gangtok -->
+        <a routerLink="/exploredestini/gangtok" class="destination-slide">
+          <img
+            src="https://images.unsplash.com/photo-1615966192539-f1731963b19a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687"
+            alt="Gangtok" class="destination-slide-image" />
+          <div class="destination-slide-overlay">
+            <div class="slide-content">
+              <h2 class="slide-city-name">Gangtok</h2>
+              <p class="slide-desc">A Himalayan gem wrapped in clouds.</p>
+              <span class="discover-more-btn">Discover More</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <button class="destination-nav-btn next" id="destination-next-btn" aria-label="Next Destination">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+
+
+
+
+  <!--  -->
+  <!--  -->
+  <section class="attractions-section" id="major-attractions">
+    <!-- HEADER -->
+    <header class="attractions-header">
+      <div class="header-inner fade-in">
+        <h1 class="attractions-title">Attractions</h1>
+        <p class="attractions-subtitle">— worth a thousand stories —</p>
+      </div>
+      <div class="header-glow"></div>
+    </header>
+
+    <!-- CAROUSEL -->
+    <div class="attractions-carousel-wrapper fade-in">
+      <button class="carousel-nav-btn prev" id="attractions-prev-btn" aria-label="Previous Attraction">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+
+      <div class="attractions-carousel-track" id="attractions-carousel-track">
+        <!-- CARD 1 -->
+        <a href="/getnohlikaifall" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/noh-sngithiang-falls-cherrapunjee-meghalaya-1-attr-nearby?qlt=82&ts=1742156329976"
+              alt="Nohkalikai Falls, Meghalaya" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Meghalaya</p>
+            <h2 class="attraction-name">Nohkalikai Falls Area</h2>
+          </div>
+        </a>
+
+        <!-- CARD 2 -->
+        <a href="/getcheraibeach" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/cherai-beach-kochi-kerala-1-attr-nearby?qlt=82&ts=1742155793670"
+              alt="Cherai Beach, Kerala" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Kerala</p>
+            <h2 class="attraction-name">Cherai Beach</h2>
+          </div>
+        </a>
+
+        <!-- CARD 3 -->
+        <a href="/getthefrenchquarter" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/the-french-quarter-puducherry-1-attr-nearby?qlt=82&ts=1726656296402"
+              alt="The French Quarter, Puducherry" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Puducherry</p>
+            <h2 class="attraction-name">The French Quarter</h2>
+          </div>
+        </a>
+
+        <!-- CARD 4 -->
+        <a href="/getcharminar" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/charminar-hyderabad-1-attr-nearby?qlt=82&ts=1742177359837"
+              alt="Charminar, Hyderabad" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Telangana</p>
+            <h2 class="attraction-name">Charminar</h2>
+          </div>
+        </a>
+
+        <!-- CARD 5 -->
+        <a href="/getgatewayofindia" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/gateway-of-india-mumbai-maharashtra-1-attr-nearby?qlt=82&ts=1742161972980"
+              alt="Gateway of India, Mumbai" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Maharashtra</p>
+            <h2 class="attraction-name">Gateway of India</h2>
+          </div>
+        </a>
+
+        <!-- CARD 7 -->
+        <a href="/gettajmahal" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1587135941948-670b381f08ce?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+              alt="Taj Mahal" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Uttar Pradesh</p>
+            <h2 class="attraction-name">Taj Mahal</h2>
+          </div>
+        </a>
+
+        <!-- CARD 8 -->
+        <a href="/gethampitemples" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=748"
+              alt="Hampi Ruins" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Karnataka</p>
+            <h2 class="attraction-name">Hampi Temples</h2>
+          </div>
+        </a>
+
+        <!-- CARD 9 -->
+        <a href="/getamberfort" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1649073868642-bcbbd06239d8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1026"
+              alt="Amber Fort Jaipur" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Rajasthan</p>
+            <h2 class="attraction-name">Amber Fort</h2>
+          </div>
+        </a>
+
+        <!-- CARD 10 -->
+        <a href="/getalleppeybackwaters" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1718821585734-e22a8fc425a2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074"
+              alt="Alleppey Backwaters" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Kerala</p>
+            <h2 class="attraction-name">Alleppey Backwaters</h2>
+          </div>
+        </a>
+
+        <!-- CARD 11 -->
+        <a href="/getqutubminar" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1697729438410-d53c666e3810?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687"
+              alt="Qutub Minar" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Delhi</p>
+            <h2 class="attraction-name">Qutub Minar</h2>
+          </div>
+        </a>
+
+        <!-- CARD 12 -->
+        <a href="/getvaranasighats" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1706186839147-0d708602587b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+              alt="Varanasi Ghats" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Uttar Pradesh</p>
+            <h2 class="attraction-name">Varanasi Ghats</h2>
+          </div>
+        </a>
+
+        <!-- CARD 13 -->
+        <a href="/getleh" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1661962344178-19930ba15492?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171"
+              alt="Leh Ladakh Mountains" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Ladakh</p>
+            <h2 class="attraction-name">Leh – Pangong Tso</h2>
+          </div>
+        </a>
+
+        <!-- CARD 14 -->
+        <a href="/getsundarbans" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1686310335921-38acc0679321?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1175"
+              alt="Sundarbans Delta" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">West Bengal</p>
+            <h2 class="attraction-name">Sundarbans National Park</h2>
+          </div>
+        </a>
+
+        <!-- CARD 15 -->
+        <a href="/getkonark" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1639980290886-6bdd61c7582b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+              alt="Konark Sun Temple" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Odisha</p>
+            <h2 class="attraction-name">Konark Sun Temple</h2>
+          </div>
+        </a>
+
+        <!-- CARD 16 -->
+        <a href="/getmysore" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1647250945832-5b5aa0f6366e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735"
+              alt="Mysore Palace" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Karnataka</p>
+            <h2 class="attraction-name">Mysore Palace</h2>
+          </div>
+        </a>
+
+        <!-- CARD 17 -->
+        <a href="/getdwarkadhish" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1747487501299-d95d65c742a5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764"
+              alt="Dwarkadhish Temple" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Gujarat</p>
+            <h2 class="attraction-name">Dwarkadhish Temple</h2>
+          </div>
+        </a>
+
+        <!-- CARD 1 -->
+        <a href="/getdelhi" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1661919589683-f11880119fb7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+              alt="Red Fort" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Delhi</p>
+            <h2 class="attraction-name">Red Fort</h2>
+          </div>
+        </a>
+
+        <!-- CARD 2 -->
+        <a href="/getgoldentemple" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1697730324062-c012bc98eb13?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+              alt="Golden Temple" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Punjab</p>
+            <h2 class="attraction-name">Golden Temple</h2>
+          </div>
+        </a>
+
+        <!-- CARD 3 -->
+        <a href="/gettulipgarden" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/tulip-garden-patnitop-attr-nearby?qlt=82&ts=1727353616756"
+              alt="Tulip Garden" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Jammu & Kashmir</p>
+            <h2 class="attraction-name">Tulip Garden</h2>
+          </div>
+        </a>
+
+        <!-- CARD 4 -->
+        <a href="/getrohtangpass" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/rohtang-pass-manali-himachal-pradesh-1-attr-nearby?qlt=82&ts=1726730692270"
+              alt="Rohtang Pass" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Himachal Pradesh</p>
+            <h2 class="attraction-name">Rohtang Pass</h2>
+          </div>
+        </a>
+
+        <!-- CARD 5 -->
+        <a href="/getrockgarden" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/rock-garden-chandigarh-1-attr-nearby?qlt=82&ts=1742168587580"
+              alt="Rock Garden" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Chandigarh</p>
+            <h2 class="attraction-name">Rock Garden</h2>
+          </div>
+        </a>
+
+        <!-- CARD 6 -->
+        <a href="/getbrahmasarowar" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/brahma-sarovar-kurukshetra-haryana-1-attr-nearby?qlt=82&ts=1742180283978"
+              alt="Brahma Sarowar" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Haryana</p>
+            <h2 class="attraction-name">Brahma Sarowar</h2>
+          </div>
+        </a>
+
+        <!-- CARD 7 -->
+        <a href="/gethawamahal" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/hawa-mahal-jaipur-rajasthan-1-attr-nearby?qlt=82&ts=1742169186274"
+              alt="Hawa Mahal" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Rajasthan</p>
+            <h2 class="attraction-name">Hawa Mahal</h2>
+          </div>
+        </a>
+
+        <!-- CARD 8 -->
+        <a href="/getchidiyatapu" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/chidiya-tapu-port-blair-andaman-nicobar-island-1-attr-nearby?qlt=82&ts=1726746290743"
+              alt="Chidiya Tapu" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Andaman & Nicobar</p>
+            <h2 class="attraction-name">Chidiya Tapu</h2>
+          </div>
+        </a>
+
+        <!-- CARD 9 -->
+        <a href="/getvictoriamemorial" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/victoria-memorial-kolkata-wb-1-attr-nearby?qlt=82&ts=1742153405603"
+              alt="Victoria Memorial" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">West Bengal</p>
+            <h2 class="attraction-name">Victoria Memorial</h2>
+          </div>
+        </a>
+
+        <!-- CARD 10 -->
+        <a href="/getmahabodhitemple" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/mahabodhi-temple-gaya-bihar-1-attr-nearby?qlt=82&ts=1726740857751"
+              alt="Mahabodhi Temple" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Bihar</p>
+            <h2 class="attraction-name">Mahabodhi Temple</h2>
+          </div>
+        </a>
+
+        <!-- CARD 11 -->
+        <a href="/getanjunabeach" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/anjuna-beach-goa-goa-anjuna-beach--goa-1-attr-nearby?qlt=82&ts=1742183007834"
+              alt="Anjuna Beach" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Goa</p>
+            <h2 class="attraction-name">Anjuna Beach</h2>
+          </div>
+        </a>
+
+        <!-- CARD 12 -->
+        <a href="/getnaidacaves" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/naida-caves-diu-daman-&-diu-1-attr-nearby?qlt=82&ts=1726737873659"
+              alt="Naida Caves" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Diu</p>
+            <h2 class="attraction-name">Naida Caves</h2>
+          </div>
+        </a>
+
+        <!-- CARD 13 -->
+        <a href="/getvivekanandsarowar" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/swami-vivekananda-sarovar-raipur-chhattisgarh-1-attr-nearby?qlt=82&ts=1727011178647"
+              alt="Vivekananda Sarowar" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Tripura</p>
+            <h2 class="attraction-name">Vivekananda Sarowar</h2>
+          </div>
+        </a>
+
+        <!-- CARD 14 -->
+        <a href="/getvirupaksha" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/virupaksha-temple-hampi-karnataka-1-attr-nearby?qlt=82&ts=1726721690964"
+              alt="Virupaksha Temple" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Karnataka</p>
+            <h2 class="attraction-name">Virupaksha Temple</h2>
+          </div>
+        </a>
+
+        <!-- CARD 15 -->
+        <a href="/getbalaji" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1733805569204-41768c7d8c0f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1227"
+              alt="Balaji Temple" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Telangana</p>
+            <h2 class="attraction-name">Balaji Temple</h2>
+          </div>
+        </a>
+
+        <!-- CARD 16 -->
+        <a href="/getchamundi" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1557062975-92aa401cee64?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735"
+              alt="Chamundi Temple" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Karnataka</p>
+            <h2 class="attraction-name">Chamundi Temple</h2>
+          </div>
+        </a>
+
+        <!-- CARD 17 -->
+        <a href="/getkamakhya" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/kamakhya-temple-dispur-assam-1-attr-nearby?qlt=82&ts=1742157210507"
+              alt="Kamakhya Temple" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Assam</p>
+            <h2 class="attraction-name">Kamakhya Temple</h2>
+          </div>
+        </a>
+
+        <!-- CARD 18 -->
+        <a href="/getshore" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/1-shore-temple-mamallapuram-2-attr-nearby?qlt=82&ts=1726654619613"
+              alt="Shore Temple" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Tamil Nadu</p>
+            <h2 class="attraction-name">Shore Temple</h2>
+          </div>
+        </a>
+
+        <!-- CARD 19 -->
+        <a href="/getjagannath" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img src="https://odishadairy.wordpress.com/wp-content/uploads/2015/07/jagannath-03.jpg"
+              alt="Jagannath Temple" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Odisha</p>
+            <h2 class="attraction-name">Jagannath Temple</h2>
+          </div>
+        </a>
+
+        <!-- CARD 20 -->
+        <a href="/getbangaram" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img src="https://flyzoneventures.com/wp-content/uploads/2021/03/lakshadweep-holidays-3.jpg"
+              alt="Bangaram Island" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Lakshadweep</p>
+            <h2 class="attraction-name">Bangaram Island</h2>
+          </div>
+        </a>
+
+        <!-- CARD 21 -->
+        <a href="/getdzukouvalley" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/dzukou-valley-kohima-nagaland-1-attr-nearby?qlt=82&ts=1727012387234"
+              alt="Dzukou Valley" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Nagaland</p>
+            <h2 class="attraction-name">Dzukou Valley</h2>
+          </div>
+        </a>
+
+        <!-- CARD 22 -->
+        <a href="/getkanglafort" class="attraction-card">
+          <div class="attraction-image-wrap">
+            <img
+              src="https://s7ap1.scene7.com/is/image/incredibleindia/kangla-fort-imphal-manipur-1-attr-nearby?qlt=82&ts=1742180611028"
+              alt="Kangla Fort" class="attraction-image" loading="lazy" />
+            <div class="image-overlay"></div>
+          </div>
+          <div class="attraction-content">
+            <p class="attraction-state">Manipur</p>
+            <h2 class="attraction-name">Kangla Fort</h2>
+          </div>
+        </a>
+      </div>
+
+
+
+      <button class="carousel-nav-btn next" id="attractions-next-btn" aria-label="Next Attraction">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!--  -->
+  <!-- POPULAR DESTINATIONS -->
+  <section class="intro">
+    <app-explore></app-explore>
+    <div class="btn-container">
+      <a routerLink="/explore" class="btn-primary">See All Destinations</a>
+    </div>
+  </section>
+
+  <!--  -->
+  <!-- TRANSPORT SECTION -->
+  <section class="transport" id="travel-modes-section">
+  <p class="transportHeading">Inspired?</p>
+  <h1 class="transportHeadingMain">GET STARTED</h1>
+
+  <div class="travel-modes-container">
+    <button class="travel-card active" (click)="openRedirect('Flights', 'https://www.makemytrip.com/flights/')">
+      <i class="material-icons">flight_takeoff</i>
+      <span>Flights</span>
+    </button>
+
+    <button class="travel-card" (click)="openRedirect('Trains', 'https://www.irctc.co.in/')">
+      <i class="material-icons">train</i>
+      <span>Trains</span>
+    </button>
+
+    <button class="travel-card" (click)="openRedirect('Buses', 'https://www.redbus.in/')">
+      <i class="material-icons">directions_bus</i>
+      <span>Buses</span>
+    </button>
+
+    <button class="travel-card" (click)="openRedirect('Cabs', 'https://www.olacabs.com/')">
+      <i class="material-icons">local_taxi</i>
+      <span>Cabs</span>
+    </button>
+
+    <button class="travel-card" (click)="openRedirect('Hotels', 'https://www.booking.com/')">
+      <i class="material-icons">hotel</i>
+      <span>Accommodations</span>
+    </button>
+  </div>
+
+  <!-- Redirect Modal -->
+  <div class="redirect-modal" *ngIf="showModal">
+    <div class="redirect-content">
+      <button class="close-btn" (click)="closeModal()">&times;</button>
+      <p>
+        You are being redirected to an external website. Please note that TravelExplorer India
+        will not be held responsible for any external website’s terms of use or privacy policy.
+      </p>
+
+      <div class="redirect-logos">
+        <img src="assets/logo/incredibleindia.png" alt="Incredible India" />
+        <i class="material-icons">arrow_forward</i>
+        <img [src]="targetLogo" [alt]="targetSite" />
+      </div>
+
+      <div class="redirect-actions">
+        <button class="accept-btn" (click)="confirmRedirect()">Accept</button>
+        <button class="decline-btn" (click)="closeModal()">Decline</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</section>
+
+<!--  -->
+<!-- --- Carousel Script --- -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('carousel');
+    const cards = Array.from(carousel.children);
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    let activeIndex = 0;
+    const autoSlideDelay = 5000;
+    let autoSlide;
+
+    const updateCarousel = () => {
+      const containerWidth = carousel.parentElement.clientWidth;
+      const activeCard = cards[activeIndex];
+      const offset = activeCard.offsetLeft + activeCard.offsetWidth / 2 - containerWidth / 2;
+      carousel.style.transform = `translateX(${-offset}px)`;
+    };
+
+    const slideNext = () => {
+      activeIndex = (activeIndex + 1) % cards.length;
+      updateCarousel();
+    };
+
+    const slidePrev = () => {
+      activeIndex = (activeIndex - 1 + cards.length) % cards.length;
+      updateCarousel();
+    };
+
+    const startAutoSlide = () => {
+      clearInterval(autoSlide);
+      autoSlide = setInterval(slideNext, autoSlideDelay);
+    };
+
+    nextButton.addEventListener('click', () => { slideNext(); startAutoSlide(); });
+    prevButton.addEventListener('click', () => { slidePrev(); startAutoSlide(); });
+    window.addEventListener('resize', updateCarousel);
+
+    updateCarousel();
+    startAutoSlide();
+  });
+</script>

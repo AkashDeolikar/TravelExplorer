@@ -1,0 +1,209 @@
+:host {
+  --primary-color: #00bcd4;
+  --secondary-color: #f8fafc;
+  --text-dark: #1f2937;
+  --text-light: #f3f4f6;
+  --font-heading: "Google Sans Flex", "SF Pro Display", Arial, sans-serif;
+  --font-body: "Roboto", "Helvetica Neue", sans-serif;
+  --transition: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ---------- HERO SECTION ---------- */
+.city-hero {
+  position: relative;
+  text-align: center;
+  color: var(--text-light);
+  padding: 9rem 2rem;
+  background-size: cover;
+  background-position: center;
+  border-radius: 2rem;
+  margin: 1.5rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.city-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.city-hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: #e0e0e0;
+  margin-top: 0.6rem;
+}
+
+/* ---------- CONTENT ---------- */
+.city-content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+.intro {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 4rem;
+}
+
+.intro h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  margin-bottom: 1rem;
+}
+
+.intro-text {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: #4b5563;
+  line-height: 1.75;
+}
+
+/* ---------- ATTRACTION GRID ---------- */
+.places {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+.place-card {
+  display: block;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.place-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.place-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.place-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-text {
+  padding: 1.4rem 1.25rem 1.5rem;
+}
+
+.place-card h3 {
+  font-family: var(--font-heading);
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.place-card p {
+  font-family: var(--font-body);
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.read-more:hover {
+  color: #0098ad;
+  transform: translateX(4px);
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+  .city-hero {
+    padding: 7rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .city-hero {
+    margin: 1rem;
+    border-radius: 1rem;
+  }
+
+  .city-hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+.city-highlights {
+  display: grid;
+  gap: 0.75rem;
+  justify-content: center;
+  max-width: 700px;
+  margin: 2rem auto 3rem;
+  list-style: none;
+  padding: 0;
+}
+
+.city-highlights li {
+  font-size: 1rem;
+  color: #374151;
+  font-family: var(--font-body);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.25s ease;
+}
+
+.city-highlights li:hover {
+  transform: translateX(6px);
+  color: var(--primary-color);
+}
+
+.city-highlights .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--primary-color);
+}

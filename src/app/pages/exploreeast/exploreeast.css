@@ -1,0 +1,6 @@
+@import '../explorenorth/explorenorth.css';
+.east-bg {
+  background-image: url('https://imgcld.yatra.com/ytimages/image/upload/v1433742759/Darjeeling_11.jpg');
+}
+
+/* Reuse all other styles from north.css */

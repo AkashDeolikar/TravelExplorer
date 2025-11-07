@@ -1,0 +1,14 @@
+<app-hero [title]="title" [subtitle]="subtitle" [image]="heroImage">
+  <a class="cta" routerLink="/discover">Explore More</a>
+</app-hero>
+
+<app-info title="About {{title}}" subtitle="{{subtitle}}">
+  <p>{{description}}</p>
+  <ul>
+    <li *ngFor="let f of facts"><strong>{{f.k}}:</strong> {{f.v}}</li>
+  </ul>
+</app-info>
+
+<app-gallery [images]="gallery"></app-gallery>
+
+<app-footer></app-footer>

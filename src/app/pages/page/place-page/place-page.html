@@ -1,0 +1,21 @@
+<ng-container *ngIf="place">
+  <app-hero
+    [title]="place.hero.title"
+    [subtitle]="place.hero.subtitle"
+    [image]="place.hero.image">
+  </app-hero>
+
+  <app-info
+    [title]="place.info.aboutTitle"
+    [subtitle]="place.info.aboutText"
+    [image]="place.gallery[0]">
+  </app-info>
+
+  <app-gallery [images]="place.gallery"></app-gallery>
+
+  <!-- <app-footer></app-footer> -->
+</ng-container>
+
+<ng-container *ngIf="!place">
+  <p class="not-found">Sorry, this place could not be found.</p>
+</ng-container>

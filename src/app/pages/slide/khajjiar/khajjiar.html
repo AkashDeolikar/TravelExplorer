@@ -1,0 +1,68 @@
+<main class="khajjiar-page">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-image" [style.background-image]="'url(' + heroImage + ')'"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+      <h1>{{ title }}</h1>
+      <p class="subtitle">{{ subtitle }}</p>
+      <a class="cta" href="#details">Discover Khajjiar</a>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section id="details" class="intro container observe">
+    <h2>Nature’s Canvas</h2>
+    <p>
+      Khajjiar is a breathtaking plateau nestled amidst the Dhauladhar ranges of the Himalayas.
+      Its vast green meadow, mirrored lake, and forested backdrop create a picture-perfect landscape
+      often compared to Switzerland. The air is crisp, the pine scent calming — a true Alpine escape in India.
+    </p>
+  </section>
+
+  <!-- Quick Facts & Highlights -->
+  <section class="facts-highlights container grid observe">
+    <aside class="facts">
+      <h3>Quick Facts</h3>
+      <ul>
+        <li *ngFor="let f of quickFacts"><strong>{{ f.k }}:</strong> {{ f.v }}</li>
+      </ul>
+    </aside>
+
+    <section class="highlights">
+      <h3>Highlights</h3>
+      <div class="cards">
+        <article class="card" *ngFor="let h of highlights">
+          <div class="card-icon">{{ h.icon }}</div>
+          <div>
+            <h4>{{ h.title }}</h4>
+            <p>{{ h.desc }}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery container observe">
+    <h3>Khajjiar in Frames</h3>
+    <div class="gallery-grid">
+      <img *ngFor="let img of galleryImages" [src]="img" alt="Khajjiar view" />
+    </div>
+  </section>
+
+  <!-- Plan -->
+  <section class="plan container observe">
+    <h3>Plan Your Visit</h3>
+    <p>
+      Best visited from March to June and September to December. Nearest airport: Gaggal (120 km).
+      Khajjiar is easily accessible from Dalhousie and Chamba by road. Experience horse riding,
+      nature walks, or simply unwind amidst the whispering pines.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <p>© 2025 Himachal Tourism • Designed with elegance and tranquility.</p>
+  </footer>
+</main>

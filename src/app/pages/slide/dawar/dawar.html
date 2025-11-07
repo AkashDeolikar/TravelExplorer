@@ -1,0 +1,65 @@
+<main class="dawar-page">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+      <h1>DAWAR</h1>
+      <p>The ancient capital of the Dards — where silence speaks history.</p>
+      <button (click)="scrollToSection('heritage')">Discover More</button>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="heritage" class="section about" [@fadeReveal]="aboutVisible ? 'show' : 'hide'">
+    <div class="content">
+      <h2>Timeless Heritage</h2>
+      <p>
+        Nestled in the Gurez Valley, Dawar reflects an untouched chapter of Kashmir —
+        where snow peaks guard millennia of Dardic culture, and every path whispers folklore.
+      </p>
+      <h3>Legacy of the Dards</h3>
+      <p>
+        Once home to poets and scholars, its Shina-speaking community preserves
+        a rhythm of life shaped by rivers and rituals.
+      </p>
+    </div>
+    <div class="image"></div>
+  </section>
+
+  <!-- Weather -->
+  <section class="section weather" [@fadeReveal]="climateVisible ? 'show' : 'hide'">
+    <h2>Seasons in Harmony</h2>
+    <div class="temp-grid">
+      <div *ngFor="let m of months" class="temp-card">
+        <span>{{ m.n }}</span>
+        <strong>{{ m.t }}</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Travel -->
+  <section class="section travel" [@fadeReveal]="travelVisible ? 'show' : 'hide'">
+    <h2>Getting There</h2>
+    <ul>
+      <li><strong>Air:</strong> Srinagar Airport (SXR)</li>
+      <li><strong>Rail:</strong> Sopore and Baramulla</li>
+      <li><strong>Road:</strong> Scenic Bandipora route</li>
+    </ul>
+  </section>
+
+  <!-- Nearby -->
+  <section class="section nearby" [@fadeReveal]="nearbyVisible ? 'show' : 'hide'">
+    <h2>Explore Nearby</h2>
+    <div class="nearby-links">
+      <a routerLink="/explore/srinagar">Srinagar</a>
+      <a routerLink="/explore/anantnag">Anantnag</a>
+      <a routerLink="/explore/kargil">Kargil</a>
+      <a routerLink="/explore/leh">Leh</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Incredible India — Designed with precision & calm.</p>
+  </footer>
+</main>

@@ -1,0 +1,147 @@
+<section class="booking-root" [ngClass]="tripType">
+    <section class="booking-root" [attr.data-type]="tripType">
+        <header class="hero">
+            <div class="hero-left">
+                <h1>Book train, flight, bus & cab — all in one place</h1>
+                <p class="subtitle">Curated options. Clear pricing. Fast booking links.</p>
+
+                <nav class="trip-switch" role="tablist" aria-label="Trip type">
+                    <button role="tab" [attr.aria-selected]="tripType === 'train'" [class.active]="tripType==='train'"
+                        (click)="setTrip('train')"><span class="material-symbols-outlined">
+                            train
+                        </span>Train</button>
+                    <button role="tab" [attr.aria-selected]="tripType === 'flight'" [class.active]="tripType==='flight'"
+                        (click)="setTrip('flight')"><span class="material-symbols-outlined">
+                            flight
+                        </span>Flight</button>
+                    <button role="tab" [attr.aria-selected]="tripType === 'bus'" [class.active]="tripType==='bus'"
+                        (click)="setTrip('bus')"><span class="material-symbols-outlined">
+                            directions_bus
+                        </span>Bus</button>
+                    <button role="tab" [attr.aria-selected]="tripType === 'cab'" [class.active]="tripType==='cab'"
+                        (click)="setTrip('cab')"><span class="material-symbols-outlined">
+                            local_taxi
+                        </span>Cab</button>
+                </nav>
+
+                <form class="search-bar" (submit)="$event.preventDefault(); search()">
+                    <div class="field-group">
+                        <label for="from">From</label>
+                        <input id="from" placeholder="City / station / airport" [(ngModel)]="from" name="from" />
+                    </div>
+                    <button type="button" class="swap-btn" (click)="swap()" title="Swap">⇄</button>
+                    <div class="field-group">
+                        <label for="to">To</label>
+                        <input id="to" placeholder="City / station / airport" [(ngModel)]="to" name="to" />
+                    </div>
+                    <div class="field-group small">
+                        <label for="date">Date</label>
+                        <input id="date" type="date" [(ngModel)]="date" name="date" />
+                    </div>
+                    <div class="field-group small">
+                        <label for="pax">Passengers</label>
+                        <input id="pax" type="number" min="1" [(ngModel)]="passengers" name="passengers" />
+                    </div>
+
+                    <button class="search-btn" type="submit" aria-live="polite">
+                        <span *ngIf="!loading">Search</span>
+                        <span *ngIf="loading" class="loader-inline" aria-hidden="true"></span>
+                    </button>
+
+
+                </form>
+            </div>
+
+            <div class="hero-right">
+                <div class="quick-links" aria-hidden="false">
+                    <h4>Quick links</h4>
+                    <div class="quick-grid">
+                        <a (click)="openExternal('https://www.irctc.co.in')" role="button">IRCTC</a>
+                        <a (click)="openExternal('https://www.redbus.in')" role="button">RedBus</a>
+                        <a (click)="openExternal('https://www.yatra.com')" role="button">Yatra</a>
+                        <a (click)="openExternal('https://www.makemytrip.com')" role="button">MakeMyTrip</a>
+                        <a (click)="openExternal('https://www.goibibo.com')" role="button">Goibibo</a>
+                        <a href="https://www.google.com/flights" target="_blank" rel="noopener">Google Flights</a>
+                    </div>
+                </div>
+
+                <div class="promo">
+                    <strong>New — Smart Fare Alerts</strong>
+                    <p>Track price drops and get notified. (Demo mode)</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="results-area">
+            <section class="controls">
+                <input class="search-inline" placeholder="Filter results (provider, class...)" [(ngModel)]="searchTerm"
+                    (keyup.enter)="search()" />
+                <label for="sort">Sort</label>
+                <select id="sort" [(ngModel)]="sortBy" (change)="search()">
+                    <option value="price">Price</option>
+                    <option value="duration">Duration</option>
+                    <option value="rating">Rating</option>
+                </select>
+            </section>
+
+            <section class="cards" aria-live="polite">
+                <div *ngIf="loading" class="skeleton-list" role="status" aria-label="Loading results">
+                    <div class="skeleton" *ngFor="let n of [].constructor(skeletonCount)"></div>
+                </div>
+
+                <div *ngIf="!loading && results.length === 0" class="empty">No matches. Try changing date or search
+                    term.</div>
+
+                <article class="card" *ngFor="let item of results" [attr.data-id]="item.id">
+                    <div class="card-left">
+                        <div class="provider-row">
+                            <div class="badge" [style.background]="providerMeta[item.provider]?.color || '#ddd'">
+                                {{ providerMeta[item.provider]?.initials || (item.provider[0] || '?') }}
+                            </div>
+                            <div class="provider-info">
+                                <div class="provider">{{item.provider}}</div>
+                                <h3 class="title">{{item.title}}</h3>
+                            </div>
+                        </div>
+
+                        <div class="meta">Depart: <strong>{{item.depart}}</strong> &nbsp; • &nbsp; Arrive:
+                            <strong>{{item.arrive}}</strong>
+                        </div>
+                        <div class="duration">{{item.duration || '—'}} <span class="seats" *ngIf="item.seatsLeft">•
+                                {{item.seatsLeft}} seats left</span></div>
+                    </div>
+
+                    <div class="card-right">
+                        <div class="price">₹{{item.price | number}}</div>
+                        <div class="rating" *ngIf="item.rating">★ {{item.rating}}</div>
+                        <div class="actions">
+                            <button class="btn-outline" (click)="openExternal(item.link)">View</button>
+                            <button class="btn-primary" (click)="book(item)">Book</button>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <aside class="side-panel">
+                <h4>Tips</h4>
+                <ul>
+                    <li>For trains: prefer IRCTC for official availability and confirmation.</li>
+                    <li>Flights: flexible dates often save money — try +/- 1–3 days.</li>
+                    <li>Buses: check operator rating and cancellation policy before booking.</li>
+                </ul>
+
+                <h4>Trusted partners</h4>
+                <div class="partners">
+                    <a (click)="openExternal('https://www.irctc.co.in')">IRCTC</a>
+                    <a (click)="openExternal('https://www.redbus.in')">RedBus</a>
+                    <a (click)="openExternal('https://www.makemytrip.com')">MakeMyTrip</a>
+                </div>
+            </aside>
+        </main>
+
+        <footer class="booking-footer">
+            <small>Demo UI — simulated API (client-side). Replace internal generator with your real API responses when
+                ready.</small>
+        </footer>
+    </section>
+</section>

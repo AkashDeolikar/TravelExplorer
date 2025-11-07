@@ -1,0 +1,24 @@
+<div class="place-details" *ngIf="place">
+    <div class="image-section">
+        <img [src]="place.image" alt="{{ place.name }}" />
+    </div>
+
+    <div class="info-section">
+        <h2>{{ place.name }} </h2>
+        <p class="location">{{ place.location }} </p>
+        <p class="description">{{ place.description }}</p>
+
+        <div class="details-grid">
+            <p><strong>Category:</strong>>{{ place.category }}</p>
+            <p><strong>Rating:</strong>
+                <span class="material-symbols-outlined">
+                    star
+                </span>
+                {{ place.rating }}/5
+            </p>
+            <p><strong>Price:</strong> ₹{{ place.price }}</p>
+        </div>
+
+        <button class="book-btn" (click)="goToBooking()">Book Now</button>
+    </div>
+</div>

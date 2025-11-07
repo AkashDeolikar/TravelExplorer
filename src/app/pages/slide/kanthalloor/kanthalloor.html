@@ -1,0 +1,75 @@
+<main class="kanthalloor-page">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-image" [style.background-image]="'url(' + heroImage + ')'"></div>
+      <div class="hero-gradient"></div>
+    </div>
+    <div class="hero-content">
+      <h1>{{ title }}</h1>
+      <p class="subtitle">{{ subtitle }}</p>
+      <a class="cta" href="#explore">Explore Kanthalloor</a>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section id="explore" class="intro section observe">
+    <h2>Where Nature Meets Heritage</h2>
+    <p>
+      Tucked deep in Kerala’s Western Ghats, Kanthalloor is a hidden valley of orchards,
+      ancient megaliths, and tranquil forests. Known as the <em>“Kashmir of the South”</em>,
+      it’s a rare blend of culture, calm, and climate.
+    </p>
+  </section>
+
+  <!-- Quick Facts -->
+  <section class="facts-highlights section grid observe">
+    <aside class="facts glass">
+      <h3>Quick Facts</h3>
+      <ul>
+        <li *ngFor="let f of quickFacts"><strong>{{ f.k }}</strong> — {{ f.v }}</li>
+      </ul>
+    </aside>
+
+    <section class="highlights">
+      <h3>Village Highlights</h3>
+      <div class="cards">
+        <article class="card" *ngFor="let h of highlights">
+          <div class="icon">{{ h.icon }}</div>
+          <div class="card-body">
+            <h4>{{ h.title }}</h4>
+            <p>{{ h.desc }}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery section observe">
+    <h2>Visual Journey</h2>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1745648593972-901374863d95?auto=format&fit=crop&q=80&w=687" alt="Kanthalloor Hills" />
+      <img src="https://images.unsplash.com/photo-1678553223940-a74f5760ad65?auto=format&fit=crop&q=80&w=687" alt="Fruit Orchards" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Dolmen_kanthalloor.jpg" alt="Megalith Dolmens" />
+    </div>
+  </section>
+
+  <!-- Plan Visit -->
+  <section class="plan section glass observe">
+    <h3>Plan Your Visit</h3>
+    <p>
+      The ideal months are <strong>September to March</strong> — when the mist settles over apple farms
+      and sandalwood hills breathe freshness. Access via Munnar through scenic hill roads.
+      Learn more at
+      <a href="https://www.rural.tourism.gov.in/images/pdf/Kanthalloor-Kerala.pdf" target="_blank">
+        rural.tourism.gov.in
+      </a>.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Kanthalloor Tourism — Designed with balance & clarity.</p>
+  </footer>
+</main>

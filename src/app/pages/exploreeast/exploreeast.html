@@ -1,0 +1,34 @@
+<div class="region-hero east-bg">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>Explore <span>East India</span></h1>
+    <p class="hero-subtitle">Land of temples, tea gardens, and rich cultural tapestry.</p>
+  </div>
+</div>
+
+<section class="region-content">
+  <div class="intro">
+    <h2>Discover the Wonders of the East</h2>
+    <p class="intro-text">
+      East India boasts immense natural beauty and deep cultural heritage. Explore the lush tea gardens of Assam, 
+      the ancient, magnificent temples of Odisha, and the vibrant, intellectual culture of West Bengal and Bihar. 
+      This region promises a truly authentic Indian experience.
+    </p>
+  </div>
+
+  <div class="places">
+    <a class="place-card" *ngFor="let p of places" [routerLink]="p.link">
+      <img [src]="p.image" [alt]="p.name" />
+      <div class="card-text">
+        <h3>{{ p.name }}</h3>
+        <p>{{ p.desc }}</p>
+        <a [href]="p.link" target="_blank" rel="noopener noreferrer" class="read-more">
+          Read More
+          <span class="material-symbols-outlined">
+            arrow_right_alt
+          </span>
+        </a>  
+      </div>
+    </a>
+  </div>
+</section>

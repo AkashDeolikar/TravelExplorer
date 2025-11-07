@@ -1,0 +1,67 @@
+<div class="animated-bg"></div>
+
+<section class="contact-page">
+  <!-- 🌄 Hero Section -->
+  <div class="contact-hero">
+    <div class="overlay"></div>
+    <h1>Get in Touch</h1>
+    <p>We’d love to hear from you! Reach out and we’ll get back to you soon.</p>
+  </div>
+
+  <!-- 🧊 Main Wrapper -->
+  <div class="contact-wrapper">
+    <!-- Left: Form Card -->
+    <div class="contact-card glass-card">
+      <h2>Send us a Message</h2>
+
+      <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
+        <div class="form-group">
+          <input type="text" id="name" name="name" [(ngModel)]="contact.name" placeholder=" " required />
+          <label for="name">Full Name</label>
+        </div>
+
+        <div class="form-group">
+          <input type="email" id="email" name="email" [(ngModel)]="contact.email" placeholder=" " required />
+          <label for="email">Email Address</label>
+        </div>
+
+        <div class="form-group">
+          <textarea id="message" name="message" [(ngModel)]="contact.message" rows="5" placeholder=" " required></textarea>
+          <label for="message">Your Message</label>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Right: Info Card -->
+    <div class="info-card glass-card">
+      <h2>Contact Information</h2>
+      <p class="intro-text">
+        Have questions about destinations, bookings, or travel plans? We’re here to help!
+      </p>
+
+      <ul class="info-list">
+        <li>
+          <i class="material-icons">place</i>
+          <span>Travel Explorer HQ, Mumbai, India</span>
+        </li>
+        <li>
+          <i class="material-icons">email</i>
+          <span>support@travelexplorer.com</span>
+        </li>
+        <li>
+          <i class="material-icons">call</i>
+          <span>+91 98765 43210</span>
+        </li>
+      </ul>
+
+      <div class="social-icons">
+        <a href="#"><i class="material-icons">facebook</i></a>
+        <a href="#"><i class="material-icons">travel_explore</i></a>
+        <a href="#"><i class="material-icons">photo_camera</i></a>
+        <a href="#"><i class="material-icons">mail</i></a>
+      </div>
+    </div>
+  </div>
+</section>

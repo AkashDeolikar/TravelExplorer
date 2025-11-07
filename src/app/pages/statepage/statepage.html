@@ -1,0 +1,12 @@
+<div *ngIf="loading">Loading {{ stateName }} places...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<h2>Places in {{ stateName }}</h2>
+<div class="places-container">
+  <div class="place-card" *ngFor="let place of places">
+    <img [src]="place.image" alt="{{ place.name }}" />
+    <h3>{{ place.name }}</h3>
+    <p>{{ place.description | slice:0:100 }}...</p>
+    <button [routerLink]="['/place', place._id]">View Details</button>
+  </div>
+</div>

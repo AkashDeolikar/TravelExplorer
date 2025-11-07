@@ -1,0 +1,79 @@
+<section class="explore-page">
+  <!-- 🧭 Hero Section -->
+  <header class="explore-hero">
+    <h1>
+      Explore <span>Incredible India</span>
+    </h1>
+    <p class="subtitle">
+      Discover breathtaking destinations, curated experiences, and cultural wonders across India.
+    </p>
+  </header>
+
+  <!-- 🔍 Filters -->
+  <div class="filters">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      placeholder="Search destinations, experiences..."
+      (keyup.enter)="applyFilters()"
+    />
+
+    <select [(ngModel)]="selectedCategory" (change)="applyFilters()">
+      <option value="">All Categories</option>
+      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+    </select>
+
+    <button (click)="clearFilters()">Reset</button>
+
+    <button *ngIf="selectedState" (click)="clearFilters(true)" class="back-btn">
+      ← Back
+    </button>
+  </div>
+
+  <!-- 🌐 States Grid -->
+  <div class="state-grid" *ngIf="!selectedState && !loading && states.length">
+    <div
+      class="state-card"
+      *ngFor="let state of states"
+      (click)="selectState(state)"
+    >
+      <div class="image-wrapper">
+        <img [src]="getStateImage(state)" alt="{{ state }}" />
+      </div>
+      <div class="state-info">
+        <h4>{{ state }}</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📍 Places Grid -->
+  <div *ngIf="!loading && !error && places.length" class="place-grid">
+    <a
+      class="place-card"
+      *ngFor="let place of places"
+      [routerLink]="['/place', place.id]"
+    >
+      <div class="image-wrapper">
+        <img
+          [src]="place.image || 'assets/default-place.jpg'"
+          alt="{{ place.name }}"
+        />
+      </div>
+      <div class="place-info">
+        <h2>{{ place.name }}</h2>
+        <p class="meta">{{ place.state }} — <em>{{ place.category }}</em></p>
+        <p class="desc">{{ place.description | slice: 0: 130 }}...</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- 🧭 Empty & Loading States -->
+  <div *ngIf="loading" class="loading">Loading adventures...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div
+    *ngIf="!loading && !error && places.length === 0"
+    class="no-results-message"
+  >
+    No destinations found. Try changing your filters.
+  </div>
+</section>

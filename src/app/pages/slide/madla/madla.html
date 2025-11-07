@@ -1,0 +1,75 @@
+<main class="madla-page">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image" [style.background-image]="'url(' + heroImage + ')'"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>{{ title }}</h1>
+      <p class="subtitle">{{ subtitle }}</p>
+      <a class="cta" href="#details">Explore Madla</a>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section id="details" class="intro container observe">
+    <h2>Why Visit Madla?</h2>
+    <p>
+      Nestled along the tranquil banks of the Ken River, Madla is a meeting point of
+      mountains, rivers, and forests — a rare confluence of natural harmony. The village offers
+      sustainable homestays, rural art, and slow living experiences surrounded by pristine wilderness.
+    </p>
+    <p class="cite">
+      Source:
+      <a href="https://www.incredibleindia.gov.in/en/rural-tourism/madla" target="_blank">
+        Incredible India – Madla
+      </a>
+    </p>
+  </section>
+
+  <!-- Quick Facts & Highlights -->
+  <section class="facts-highlights container grid observe">
+    <aside class="facts">
+      <h3>Quick Facts</h3>
+      <ul>
+        <li *ngFor="let f of quickFacts"><strong>{{ f.k }}:</strong> {{ f.v }}</li>
+      </ul>
+    </aside>
+
+    <section class="highlights">
+      <h3>Highlights</h3>
+      <div class="cards">
+        <article class="card" *ngFor="let h of highlights">
+          <div class="card-icon">{{ h.icon }}</div>
+          <div>
+            <h4>{{ h.title }}</h4>
+            <p>{{ h.desc }}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery container observe">
+    <h3>Gallery</h3>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1522629972674-3dabd4d9a53b?auto=format&fit=crop&w=800&q=60" alt="Ken River Madla" />
+      <img src="https://images.unsplash.com/photo-1533749655829-2e786b4ab7c4?auto=format&fit=crop&w=800&q=60" alt="Forest hills Madla" />
+      <img src="https://images.unsplash.com/photo-1549989471-31a9c9a8036a?auto=format&fit=crop&w=800&q=60" alt="Village culture Madla" />
+    </div>
+  </section>
+
+  <!-- Plan Visit -->
+  <section class="plan container observe">
+    <h3>Plan Your Visit</h3>
+    <p>
+      Madla is best visited between October and March. From here, you can reach Khajuraho’s temples or explore
+      Panna National Park for its tigers and waterfalls — all while experiencing Bundelkhand’s warmth and heritage.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <p>© 2025 Madla Village Tourism — Designed with minimalism and intent.</p>
+  </footer>
+</main>

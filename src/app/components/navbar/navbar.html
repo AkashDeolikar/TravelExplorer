@@ -1,0 +1,82 @@
+<nav class="mac-navbar" [class.scrolled]="isScrolled" role="navigation" aria-label="Main Navigation">
+  <div class="nav-inner">
+    <!-- Brand / Logo -->
+    <a routerLink="/home" class="nav-logo" (click)="closeAll()" aria-label="Travel Explorer Home">
+      <span class="logo-main">Travel</span>
+      <span class="logo-sub">Explorer</span>
+    </a>
+
+    <!-- Links container -->
+    <ul class="nav-links" [class.open]="isMenuOpen" role="menubar" aria-expanded="{{isMenuOpen}}">
+      <li *ngFor="let item of navItems; let i = index" class="nav-item" role="none">
+        <!-- simple link -->
+        <ng-container *ngIf="!item.children">
+          <a role="menuitem" routerLink="{{item.path}}" [class.active]="isActive(item.path)" (click)="closeAll()"
+            tabindex="0">
+            {{ item.label }}
+          </a>
+        </ng-container>
+
+        <!-- dropdown -->
+        <ng-container *ngIf="item.children">
+          <div class="dropdown" role="none">
+            <button #dropdownBtn class="dropdown-toggle" aria-haspopup="true"
+              [attr.aria-expanded]="activeDropdownIndex === i" (click)="toggleDropdown(i, $event)"
+              (keydown)="onDropdownKey($event, i)" tabindex="0" [attr.aria-controls]="'menu-' + i">
+              <span>{{ item.label }}</span>
+              <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 10l5 5 5-5z"></path>
+              </svg>
+            </button>
+
+            <ul #dropdownMenu id="menu-{{i}}" class="dropdown-menu" [class.show]="activeDropdownIndex === i" role="menu"
+              aria-label="{{item.label}} submenu">
+              <ng-container *ngFor="let child of item.children">
+  <!-- Sub-dropdown (has children) -->
+  <li class="sub-dropdown" *ngIf="child.children" [class.open]="activeSubDropdown === child.label"
+    (click)="toggleSubDropdown(child.label, $event)">
+    <button class="sub-dropdown-toggle">
+      <span>{{ child.label }}</span>
+      <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 10l5 5 5-5z"></path>
+      </svg>
+    </button>
+
+    <ul class="sub-dropdown-menu">
+      <li *ngFor="let sub of child.children">
+        <a routerLink="{{ sub.path }}" (click)="closeAll()">{{ sub.label }}</a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- ✅ Simple link (no nested menu) -->
+  <li *ngIf="!child.children" role="none">
+    <a role="menuitem" routerLink="{{ child.path }}" [class.active]="isActive(child.path)"
+      (click)="closeAll()" tabindex="-1">
+      {{ child.label }}
+    </a>
+  </li>
+</ng-container>
+
+            </ul>
+
+          </div>
+        </ng-container>
+      </li>
+
+      <!-- Auth area (mobile-first, can be styled differently for desktop) -->
+      <li class="auth-mobile" role="none">
+        <a routerLink="/login" (click)="closeAll()" role="menuitem" tabindex="0">Login</a>
+        <a routerLink="/register" (click)="closeAll()" class="signup-btn" role="menuitem" tabindex="0">Sign Up</a>
+      </li>
+    </ul>
+
+    <!-- hamburger -->
+    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu" [attr.aria-expanded]="isMenuOpen">
+      <span class="hamburger" [class.open]="isMenuOpen"><span></span><span></span><span></span></span>
+    </button>
+  </div>
+
+  <!-- overlay -->
+  <div class="overlay" [class.show]="isMenuOpen" (click)="closeAll()" aria-hidden="true"></div>
+</nav>

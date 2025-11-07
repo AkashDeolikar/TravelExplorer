@@ -1,0 +1,43 @@
+<div class="guide-wrapper">
+
+  <!-- Header -->
+  <header class="guide-header">
+    <h1>Explore India 🌏</h1>
+    <p>Discover landmarks, cities, and hidden gems with our Travel Guides.</p>
+  </header>
+
+  <!-- Search + Current Location -->
+  <div class="controls">
+    <div class="search-bar">
+      <span class="material-symbols-outlined search-icon">search</span>
+      <input type="text" placeholder="Search location..." [(ngModel)]="searchTerm" (input)="addMarkers()">
+    </div>
+    <button class="location-btn" (click)="goToCurrentLocation()">
+      <span class="material-symbols-outlined">my_location</span>
+      Use My Location
+    </button>
+  </div>
+
+  <!-- Map Section -->
+  <div id="guideMap" class="map-container"></div>
+
+  <!-- Locations Grid -->
+  <section class="locations-section">
+    <h2 *ngIf="filteredLocations().length" class="section-title">Featured Locations</h2>
+    <div class="locations-grid">
+      <div *ngFor="let loc of filteredLocations()" class="location-card">
+        <h3>{{ loc.name }}</h3>
+        <p>{{ loc.description }}</p>
+        <div class="card-actions">
+          <button (click)="panToLocation(loc)">View on Map</button>
+          <button class="distance-btn" (click)="calculateDistance(loc)">See Distance</button>
+        </div>
+      </div>
+    </div>
+    <p *ngIf="filteredLocations().length === 0" class="no-results">No matching locations 🔍</p>
+  </section>
+
+</div>
+
+<!-- Toast Notifications -->
+<div id="toast-container"></div>

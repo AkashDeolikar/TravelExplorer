@@ -1,0 +1,235 @@
+/* 🍏 Apple Developer–Style: Minimal, Spacious, Elegant */
+.explore-page {
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem;
+  background: linear-gradient(180deg, #ffffff, #f9fafb);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Poppins", sans-serif;
+}
+
+/* 🧭 Hero Section */
+.explore-hero {
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 4rem;
+}
+
+.explore-hero h1 {
+  font-size: 3.4rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.explore-hero h1 span {
+  background: linear-gradient(90deg, #007aff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.explore-hero .subtitle {
+  color: #6e6e73;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* 🔍 Filters */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.filters input,
+.filters select {
+  border: 1px solid #d2d2d7;
+  border-radius: 14px;
+  padding: 0.9rem 1.2rem;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  color: #1d1d1f;
+  min-width: 200px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filters input:focus,
+.filters select:focus {
+  border-color: #007aff;
+  box-shadow: 0 0 8px rgba(0, 122, 255, 0.25);
+  outline: none;
+}
+
+.filters button {
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #007aff;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.filters button:hover {
+  background: #005bb5;
+  transform: translateY(-2px);
+}
+
+.filters .back-btn {
+  background: #e53935;
+}
+
+.filters .back-btn:hover {
+  background: #c62828;
+}
+
+/* 🌐 State Cards */
+.state-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.state-card {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.state-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.state-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.state-card:hover img {
+  transform: scale(1.05);
+}
+
+.state-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.state-info h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+/* 📍 Places Grid */
+.place-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 3rem;
+}
+
+.place-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
+}
+
+.place-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.place-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.place-card:hover img {
+  transform: scale(1.08);
+}
+
+.place-info {
+  padding: 1.4rem 1.2rem;
+}
+
+.place-info h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 0.4rem;
+}
+
+.place-info .meta {
+  color: #6e6e73;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+.place-info em {
+  color: #007aff;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.place-info .desc {
+  color: #515154;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* 🧭 Empty / Error States */
+.loading,
+.error,
+.no-results-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6e6e73;
+  margin-top: 3rem;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .explore-hero h1 {
+    font-size: 2.2rem;
+  }
+  .filters {
+    flex-direction: column;
+    width: 100%;
+  }
+  .filters input,
+  .filters select,
+  .filters button {
+    width: 100%;
+  }
+}

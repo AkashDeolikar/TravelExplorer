@@ -1,0 +1,76 @@
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<main class="reiek-page">
+  <section class="hero">
+    <div class="hero-image" [style.background-image]="'url(' + heroImage + ')'"></div>
+    <div class="hero-content">
+      <h1>{{ title }}</h1>
+      <p class="subtitle">{{ subtitle }}</p>
+      <a class="cta" href="#details">Explore Reiek</a>
+    </div>
+  </section>
+
+  <section id="details" class="container">
+    <div class="intro">
+      <h2>Why Visit Reiek?</h2>
+      <p>
+        Nestled in the lush hills of Mizoram, Reiek Village fuses breathtaking nature, vibrant Mizo culture 
+        and sustainability in one unforgettable destination. Visit the official 
+        <a href="https://www.incredibleindia.gov.in/en/rural-tourism/reiek" target="_blank" rel="noopener noreferrer">
+          Incredible India Reiek page
+        </a> 
+        for authentic details and updates.
+      </p>
+    </div>
+
+    <div class="grid">
+      <aside class="facts">
+        <h3>Quick Facts</h3>
+        <ul>
+          <li *ngFor="let f of quickFacts"><strong>{{ f.k }}:</strong> {{ f.v }}</li>
+        </ul>
+      </aside>
+
+      <section class="highlights">
+        <h3>Highlights</h3>
+        <div class="cards">
+          <article class="card" *ngFor="let h of highlights">
+            <div class="card-icon">{{ h.icon }}</div>
+            <div>
+              <h4>{{ h.title }}</h4>
+              <p>{{ h.desc }}</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <section class="gallery">
+      <h3>Gallery</h3>
+      <div class="gallery-grid">
+        <img src="https://s7ap1.scene7.com/is/image/incredibleindia/reiek-mountain-reiek-mizoram-rural-hero?qlt=82&ts=1727162177885" alt="Reiek village hills">
+        <img src="https://s7ap1.scene7.com/is/image/incredibleindia/reiek-heritage-village-aizawl-mizoram-3-attr-about?qlt=82&ts=1726674770485" alt="Traditional Mizo hut Reiek">
+        <img src="https://indiaseatradenews.com/wp-content/uploads/2025/02/anthurium-flower.jpg" alt="Anthurium flowers Mizoram">
+      </div>
+    </section>
+
+    <section class="more">
+      <h3>Plan your visit</h3>
+      <p>
+        Reachable from Aizawl by road, Reiek is perfect for a day trip or overnight stay. 
+        Visit during the Anthurium Festival (typically Oct–Nov) for vibrant cultural celebrations. 
+        Learn more on the 
+        <a href="https://www.incredibleindia.gov.in/en/rural-tourism/reiek" target="_blank" rel="noopener noreferrer">
+          official tourism website
+        </a>.
+      </p>
+    </section>
+  </section>
+
+  <footer class="page-footer">
+    <small>
+      Demo page – replace placeholder images/text with official content before publishing.
+    </small>
+  </footer>
+</main>

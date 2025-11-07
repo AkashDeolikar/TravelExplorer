@@ -1,0 +1,33 @@
+<div class="region-hero west-bg">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>Explore <span>West India</span></h1>
+    <p class="hero-subtitle">Land of deserts, beaches, and vibrant culture.</p>
+  </div>
+</div>
+
+<section class="region-content">
+  <div class="intro">
+    <h2>Discover the Charms of the West</h2>
+    <p class="intro-text">
+      West India is a blend of colorful traditions and scenic landscapes. From Rajasthan’s golden deserts
+      to Goa’s pristine beaches and Gujarat’s wildlife sanctuaries, there is much to explore.
+    </p>
+  </div>
+
+  <div class="places">
+    <div class="place-card" *ngFor="let p of places" [routerLink]="p.link">
+      <img [src]="p.image" [alt]="p.name" />
+      <div class="card-text">
+        <h3>{{ p.name }}</h3>
+        <p>{{ p.desc }}</p>
+        <a [href]="p.link" target="_blank" rel="noopener noreferrer" class="read-more">
+          Read More
+          <span class="material-symbols-outlined">
+            arrow_right_alt
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

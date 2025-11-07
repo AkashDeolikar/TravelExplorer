@@ -1,0 +1,40 @@
+.place-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.explore-toggle {
+  margin: 2rem 0;
+}
+
+.explore-btn {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.explore-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.extra-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 1.2s ease, opacity 0.8s ease;
+}
+
+.extra-content.visible {
+  max-height: 2000px; /* enough space for gallery and footer */
+  opacity: 1;
+}

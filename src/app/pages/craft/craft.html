@@ -1,0 +1,33 @@
+<section class="craft-page">
+  <!-- HERO -->
+  <header class="hero" [style.transform]="'translateY(' + scrollY * 0.2 + 'px)'">
+    <img [src]="heroImage" [alt]="title" class="hero__image" />
+    <div class="hero__overlay"></div>
+    <div class="hero__text">
+      <h1 class="hero__title">{{ title }}</h1>
+      <p class="hero__sub">{{ location }}</p>
+      <a href="#" class="hero__link">{{ mapLabel }}</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <section *ngFor="let section of sections; let i = index" 
+             class="content-block" 
+             [style.animation-delay]="i * 0.3 + 's'">
+      <div class="content-inner">
+        <h2>{{ section.heading }}</h2>
+        <p>{{ section.content }}</p>
+      </div>
+    </section>
+
+    <section class="nearby">
+      <h3>You may also enjoy</h3>
+      <ul>
+        <li *ngFor="let place of nearby">
+          <strong>{{ place.name }}</strong> — {{ place.desc }}
+        </li>
+      </ul>
+    </section>
+  </main>
+</section>

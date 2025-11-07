@@ -1,0 +1,58 @@
+<section class="hero" [style.background-image]="'url(' + destination.heroImageUrl + ')'">
+  <div class="overlay"></div>
+  <div class="hero-text">
+    <h1>{{ destination.name }}</h1>
+    <p>{{ destination.quickSummary }}</p>
+    <div class="hero-buttons">
+      <button (click)="searchFlights()"><span class="material-symbols-outlined">
+          flight
+        </span> Flights</button>
+      <button (click)="findHotels()"><span class="material-symbols-outlined">
+          hotel
+        </span> Hotels</button>
+      <button (click)="openTransitGuide()"><span class="material-symbols-outlined">
+          commute
+        </span> Transit</button>
+      <button (click)="saveToWishlist()"><span class="material-symbols-outlined">
+          favorite
+        </span> Wishlist</button>
+    </div>
+  </div>
+</section>
+
+<section class="info">
+  <div class="stats">
+    <div>
+      <h3>Best Season</h3>
+      <p>{{ destination.bestSeason }}</p>
+    </div>
+    <div>
+      <h3>Currency</h3>
+      <p>{{ destination.currency }}</p>
+    </div>
+    <div>
+      <h3>Airport</h3>
+      <p>{{ destination.airportCode }}</p>
+    </div>
+    <div>
+      <h3>Cost Level</h3>
+      <p>{{ destination.costLevel }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="attractions">
+  <h2>Top Attractions</h2>
+  <div class="grid">
+    <div class="card" *ngFor="let a of destination.attractions">
+      <img [src]="a.imageUrl" [alt]="a.name" />
+      <div class="card-text">
+        <h3>{{ a.name }}</h3>
+        <p>{{ a.description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <button (click)="viewAllActivities()">🔍 Explore More</button>
+  </div>
+</section>

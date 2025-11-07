@@ -1,0 +1,204 @@
+:host, .kanthalloor-page {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Poppins", sans-serif;
+  color: #111;
+  background: #fff;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.08);
+  transition: transform 2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  filter: brightness(0.7);
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 75%, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 40%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  color: white;
+  animation: fadeInHero 1.8s ease-out both;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.hero-content .subtitle {
+  font-weight: 300;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  opacity: 0.9;
+  margin: 1rem 0 2rem;
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #111;
+  background: #fff;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+.cta:hover {
+  background: #0071e3;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,113,227,0.4);
+}
+
+/* ---------- Sections ---------- */
+.section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 6rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+.section h2, .section h3 {
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  margin-bottom: 1rem;
+  color: #000;
+}
+.section p {
+  color: #333;
+  max-width: 850px;
+  margin: 0.8rem auto 1.5rem;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* ---------- Grid ---------- */
+.grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 340px 1fr;
+  }
+}
+
+/* ---------- Glass Containers ---------- */
+.glass {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  padding: 2rem;
+}
+
+/* ---------- Facts ---------- */
+.facts ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+.facts li {
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+/* ---------- Highlights ---------- */
+.cards {
+  display: grid;
+  gap: 1.2rem;
+}
+.card {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 1.4rem 1.8rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  transition: transform 0.4s ease;
+}
+.card:hover { transform: translateY(-6px); }
+.icon {
+  font-size: 2rem;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,0.05);
+  border-radius: 12px;
+}
+
+/* ---------- Gallery ---------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.gallery-grid img {
+  width: 100%;
+  height: 260px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: transform 0.7s ease;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 4rem 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  border-top: 1px solid #eee;
+}
+
+/* ---------- Scroll Animations ---------- */
+.observe {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.2s cubic-bezier(0.25,0.8,0.25,1);
+}
+.observe.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeInHero {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}

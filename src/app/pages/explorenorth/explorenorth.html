@@ -1,0 +1,35 @@
+<div class="region-hero north-bg">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>Explore <span>North India</span></h1>
+    <p class="hero-subtitle">Land of the majestic Himalayas, royal palaces, and sacred rivers.</p>
+  </div>
+</div>
+
+<section class="region-content">
+  <div class="intro">
+    <h2>Discover the Magic of the North</h2>
+    <p class="intro-text">
+      North India is where adventure meets spirituality. From the snow-clad peaks of Himachal
+      and Uttarakhand to the cultural charm of Delhi, Punjab, and Rajasthan, this region offers
+      a breathtaking blend of landscapes, history, and vibrant traditions. Start your journey
+      by exploring these unforgettable destinations.
+    </p>
+  </div>
+
+  <div class="places">
+    <a class="place-card" *ngFor="let p of places" [routerLink]="p.link">
+      <img [src]="p.image" [alt]="p.name" />
+      <div class="card-text">
+        <h3>{{ p.name }}</h3>
+        <p>{{ p.desc }}</p>
+        <a [href]="p.link" target="_blank" rel="noopener noreferrer" class="read-more">
+          Read More
+          <span class="material-symbols-outlined">
+            arrow_right_alt
+          </span>
+        </a>
+      </div>
+    </a>
+  </div>
+</section>
